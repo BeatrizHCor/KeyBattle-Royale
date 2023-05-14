@@ -4,11 +4,11 @@
 function changeform(){
   changers = document.getElementsByClassName("changer")
   for(let i = 0; i < changers.length; i++){
-    if(changers[i].style.top == "90%"){
-      changers[i].style.top = "80%";
+    if(changers[i].style.top == "80%"){
+      changers[i].style.top = "10%";
     }
     else {
-      changers[i].style.top = "90%";
+      changers[i].style.top = "80%";
     }
   }
 }
