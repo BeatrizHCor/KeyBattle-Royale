@@ -1,0 +1,48 @@
+#box{
+    width: 50%;
+    height: 70%;
+    position: absolute; 
+    background-image: conic-gradient(
+        rgb(56, 102, 52),
+        rgb(126, 74, 177),
+        rgb(65, 38, 92),
+        rgb(38, 42, 92),
+        rgb(35, 61, 44),
+        rgb(38, 42, 92),
+        rgb(126, 74, 177),
+        rgb(62, 134, 68)
+    );
+    top: 15%;
+    left: 25%;
+    border-radius: 50%;
+    animation: spin 10s infinite linear;
+    filter: blur(8em);
+    z-index: -1;
+}
+#Title{
+    color: aliceblue;
+}
+@keyframes spin {
+    25%{
+        transform: scale(1.5, 1.5);
+    }
+    50%{
+        transform: scale(1, 1);
+    }
+    75%{
+        transform: scale(2, 2);
+    }
+}
+
+#container{
+    width: 50%;
+    height: 70%;
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    background-color: rgba(240, 255, 255, 0.329);
+    border-radius: 5em;
+}
+body{
+    background-color: black;
+}
