@@ -33,7 +33,7 @@
 }
 @keyframes spin {
     25%{
-        transform: scale(1.5, 1.5);
+        transform: scale(1.5, 1.3);
     }
     50%{
         transform: scale(.9, .9);
