@@ -74,7 +74,7 @@ body{
   margin-top: 10%;
 }
 
-.changer{
+#marker{
   background-color:  var(--darkpink);
   width: 8%;
   height: 30%;
@@ -82,7 +82,4 @@ body{
   top: 70%;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 49% 77%, 0 100%);
   transition: background-color 1s, top .8s;
-}
-.changer:hover{
-  background-color: var(--pink);
 }
