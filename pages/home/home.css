@@ -39,9 +39,10 @@ body{
 #content{
   width: 40vw;
   height: 65vh;
+
   position: absolute;
-  left: 30vw;
-  top: 20vh;
+  left: 30%;
+  top: 20%;
   justify-content: center;
   perspective: 70em;
 }
@@ -51,6 +52,8 @@ body{
   width: 60%;
   position: absolute;
   height: 60vh;
+  min-width: 400px;
+  min-height: 600px;
   margin-left: 20%;
   display: flex;
   z-index: 1;
@@ -177,7 +180,14 @@ form{
   place-content: space-evenly center;
   height: 60vh;
   width: 20vw;
+  min-width: 300px;
+  min-height: 600px;
 }
+
+form.turn{
+  visibility: hidden;
+}
+
 input{
   border-radius: 5%;
   height: 4vh;
@@ -195,6 +205,7 @@ input{
   background-image: conic-gradient(var(--pink), var(--darkpink), var(--pink));
   color: #FFF;
 }
-#registrar{
+p{
 cursor: pointer;
+text-align: center;
 }
