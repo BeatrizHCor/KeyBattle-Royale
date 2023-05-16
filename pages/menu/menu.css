@@ -5,10 +5,11 @@
     --pink: #872F81;
     --darkpink: #501b4c;
     --shadow: rgb(99, 99, 102);
-    --text: #f9d1d1;
+    --text: #fff;
     --dark: #0b1354;
     --selected: #a155b9;
     --blue: #165baa;
+    --black: #161616;
   }
 
 #container{
@@ -17,7 +18,7 @@
     position: absolute;
     top: 25%;
     left: 30%;
-    background-color: transparent;
+    background-color: #161616;
     border-radius: 5em;
     display: grid;
     place-content: center;
@@ -34,7 +35,14 @@
     height: 70%;
 }
 body{
-    background-color: black;
+    background-color: var(--black);
+}
+#background1{
+  width: 100%;
+  height: 50%;
+  margin-top: -10em;
+  filter: blur(10em);
+  background-image: radial-gradient(var(--blue), var(--dark));
 }
 #logo{
     height: 8vh;
@@ -56,7 +64,7 @@ body{
     }
     .selected{
       animation: animatedBackground 2s linear infinite alternate;
-      background-image: conic-gradient(var(--dark), var(--blue), var(--dark));
+      background-image: conic-gradient(var(--dark) 2%, var(--blue), var(--dark));
       border: 5px double var(--dark)
     }
   @keyframes animatedBackground {
