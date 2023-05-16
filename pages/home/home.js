@@ -1,21 +1,18 @@
 
-
-
-function changeform(){
-  changers = document.getElementsByClassName("changer")
-  for(let i = 0; i < changers.length; i++){
-    if(changers[i].style.top == "80%"){
-      changers[i].style.top = "10%";
-    }
-    else {
-      changers[i].style.top = "80%";
-    }
+function openBook(){
+  pages = document.getElementsByClassName("page")
+  cover = document.getElementById("cover")
+  card = document.getElementById("card")
+  login = document.getElementById("login")
+  cover.classList.add("turn");
+  card.classList.add("turn");
+  login.classList.add("turn")
+  for(i = 0; i < pages.length -1; i++){
+    pages[i].classList.add("turn")
   }
 }
 
 
 
 
-document.getElementById("changer-left").addEventListener("click", changeform)
-document.getElementById("changer-right").addEventListener("click", changeform)
-
+document.getElementById("registrar").addEventListener("click", openBook)
