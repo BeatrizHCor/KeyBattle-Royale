@@ -1,10 +1,11 @@
 
 :root{
-  --dark: #827881;
+  --dark: #8b7489;
   --gray: #f9d1d1;
   --darkgreen: #183B09;
   --green: #4A872F;
   --pink: #872F81;
+  --lightpink: #b476b0;
   --darkpink: #501b4c;
   --shadow: rgb(99, 99, 102);
   --black: #161616;
@@ -91,8 +92,7 @@ body{
 .page.right{
   width: 100%;
 }
-
-.changer{
+#marker{
   background-color:  var(--darkpink);
   width: 20%;
   height: 40%;
