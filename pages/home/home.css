@@ -73,6 +73,9 @@ body{
   position: absolute;
   border-radius: 5%;
 }
+#registro{
+  transform: scale(0);
+}
 #side{
   width: 95%;
   height: 98%;
@@ -139,6 +142,27 @@ body{
 #card.turn{
   animation: book 3s forwards;
 }
+#login.turn{
+  visibility: hidden;
+  transition: visibility 0.5s;
+}
+
+#registro.turn{
+  animation: scale 3s forwards;
+}
+
+
+
+
+form{
+  display: grid;
+  place-content: space-evenly center;
+  height: 60vh;
+  width: 20vw;
+  min-width: 300px;
+  min-height: 600px;
+}
+
 
 
 @keyframes bookOpen {
@@ -175,17 +199,14 @@ body{
   }  
 }
 
-form{
-  display: grid;
-  place-content: space-evenly center;
-  height: 60vh;
-  width: 20vw;
-  min-width: 300px;
-  min-height: 600px;
-}
 
-form.turn{
-  visibility: hidden;
+@keyframes scale {
+  99.99%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
 }
 
 input{
@@ -208,4 +229,85 @@ input{
 p{
 cursor: pointer;
 text-align: center;
+}
+#shelf{
+  width: 80%;
+  height: 30%;
+  top: 65%;
+  left: 13%;
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  justify-content: space-between;
+}
+.books{
+  width: 25%;
+  height: 100%;
+  display: flex;
+  transform: rotateX(20deg);
+}
+.books-cover{
+  border-radius: 1em;
+  width: 85%;
+  height: 100%;
+  box-shadow: 0 0 .2em .1em var(--shadow);
+}
+.books-side{
+  width: 15%;
+  height: 98%;
+  top: 2%;
+  left: -8%;
+  background-color: var(--gray);
+  position: relative;
+  border-radius: 0 1em 1em 0;
+  z-index: -2;
+}
+.books-backcover{
+  z-index: -3;
+  border-radius: 1em;
+  width: 25%;
+  height: 100%;
+  left: -25%;
+  position: relative;
+}
+.books:nth-child(2) .books-cover{
+  background-color: #424dad;
+}
+.books:nth-child(3) .books-cover{
+  background-color: #42a6ad;
+}
+.books:nth-child(1) .books-cover{
+  background-color: #ad4254;
+}
+
+
+.books:nth-child(5) .books-cover{
+  background-color: #9b753b;
+}
+.books:nth-child(2) .books-backcover{
+  background-color: #424dad;
+}
+.books:nth-child(3) .books-backcover{
+  background-color: #42a6ad;
+}
+.books:nth-child(1) .books-backcover{
+  background-color: #863543;
+}
+.books:nth-child(4) .books-cover{
+  box-shadow: none;
+}
+.books:nth-child(4) .books-side{
+  background-color: transparent;
+}
+.books:nth-child(5) .books-backcover{
+  background-color: #77612a;
+}
+#shelf-bottom{
+  background-color: #835938;
+  width: 105%;
+  height: 10%;
+  left: -5%;
+  position: absolute;
+  top: 98%;
+  box-shadow: .1em .1em .3em .1em var(--shadow);
 }
