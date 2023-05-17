@@ -37,9 +37,8 @@ body{
 }
 
 #content{
-  width: 40vw;
+  width: 47vw;
   height: 65vh;
-
   position: absolute;
   left: 30%;
   top: 20%;
@@ -57,6 +56,16 @@ body{
   margin-left: 20%;
   display: flex;
   z-index: 1;
+  animation: takeFrom 5s forwards;
+}
+
+@keyframes takeFrom {
+  0%{
+    transform: scale(.5) translate(100%, 94%);
+  }
+  100%{
+    transform: scale(1) ;
+  }
 }
 #cover{
   background-color: var(--pink);
@@ -158,7 +167,7 @@ form{
   display: grid;
   place-content: space-evenly center;
   height: 60vh;
-  width: 20vw;
+  width: 100%;
   min-width: 300px;
   min-height: 600px;
 }
