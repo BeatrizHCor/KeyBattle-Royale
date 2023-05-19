@@ -22,7 +22,10 @@ function openBook(){
 }
 
 
-
+setTimeout(() => {
+  document.getElementById("card").classList.remove("inShelf")
+  clearTimeout();
+}, 5000)
 
 document.getElementById("registrar").addEventListener("click", openBook)
 
@@ -34,13 +37,6 @@ function closeBook(){
   card = document.getElementById("card")
   login = document.getElementById("login")
   registro = document.getElementById("registro")
-  cover.classList.remove("turn");
-  card.classList.remove("turn");
-  login.classList.remove("turn")
-  registro.classList.remove("turn")
-  for(i = 0; i < pages.length -1; i++){
-    pages[i].classList.remove("turn")
-  }
   cover.classList.add("closed");
   card.classList.add("closed");
   login.classList.add("closed")
@@ -48,6 +44,16 @@ function closeBook(){
   for(i = 0; i < pages.length -1; i++){
     pages[i].classList.add("closed")
   }
+  setTimeout(() => {
+    cover.classList.remove("turn");
+    card.classList.remove("turn");
+    login.classList.remove("turn")
+    registro.classList.remove("turn")
+    for(i = 0; i < pages.length -1; i++){
+      pages[i].classList.remove("turn")
+    }
+    clearTimeout();
+  }, 500)
 
 }
 
