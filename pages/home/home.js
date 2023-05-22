@@ -1,8 +1,8 @@
 
 function openBook(){
   pages = document.getElementsByClassName("page")
-  cover = document.getElementById("cover")
-  card = document.getElementById("card")
+  cover = document.getElementsByClassName("cover")[0]
+  card = document.getElementsByClassName("card")[0]
   login = document.getElementById("login")
   registro = document.getElementById("registro")
   cover.classList.remove("closed");
@@ -23,7 +23,7 @@ function openBook(){
 
 
 setTimeout(() => {
-  document.getElementById("card").classList.remove("inShelf")
+  document.getElementsByClassName("card")[0].classList.remove("inShelf")
   clearTimeout();
 }, 5000)
 
@@ -33,9 +33,16 @@ document.getElementById("registrar").addEventListener("click", openBook)
 
 function closeBook(){
   pages = document.getElementsByClassName("page")
-  cover = document.getElementById("cover")
-  card = document.getElementById("card")
+  cover = document.getElementsByClassName("cover")[0]
+  card = document.getElementsByClassName("card")[0]
   login = document.getElementById("login")
+  cover.classList.remove("turn");
+  card.classList.remove("turn");
+  login.classList.remove("turn")
+  registro.classList.remove("turn")
+  for(i = 0; i < pages.length -1; i++){
+    pages[i].classList.remove("turn")
+  }
   registro = document.getElementById("registro")
   cover.classList.add("closed");
   card.classList.add("closed");
@@ -44,16 +51,6 @@ function closeBook(){
   for(i = 0; i < pages.length -1; i++){
     pages[i].classList.add("closed")
   }
-  setTimeout(() => {
-    cover.classList.remove("turn");
-    card.classList.remove("turn");
-    login.classList.remove("turn")
-    registro.classList.remove("turn")
-    for(i = 0; i < pages.length -1; i++){
-      pages[i].classList.remove("turn")
-    }
-    clearTimeout();
-  }, 500)
 
 }
 
@@ -61,3 +58,15 @@ function closeBook(){
 
 
 document.getElementById("Voltar").addEventListener("click", closeBook)
+
+
+function debounce(func, timeout = 300){
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { func.apply(this, args); }, timeout);
+  };
+}
+
+
+

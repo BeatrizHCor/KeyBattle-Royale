@@ -5,14 +5,12 @@
     <title>KeyBattle Royale</title>
   </head>
   <body>
-    
-    
     <div id="content">
-      <div id="card" class="inShelf"> 
-        <div id="cover" class="">
-          <form id="login" class="">
+      <div  class="card inShelf"> 
+        <div class="cover">
+          <form id="login" class="" onsubmit="return false">
             <div class="label-input">
-              <h1 id="User">Usuário</h1>
+              <h1 id="User">Usuario</h1>
               <input id="username-login" type="text" />
               
             </div>
@@ -21,36 +19,50 @@
               <input id="password-login" type="password" />
               
             </div>
-            <button id="btn" class="">Login</button>
+            <div class="label-input">
+
+            <button id="btn" class="">
+              <img src="../../images/cute-skull.png" style="width: 80px; height: 80px;"/>Login</button>
+              </div>
             <p id="registrar">Não tem uma conta? Crie uma</p>
           </form>
         </div>
         <div  class="page"></div>
         <div  class="page"></div>
-        <div  class="page"></div>
+        <div  class="page labels">
+          <div class="label-input">
+            <h2 id="User">Usuário</h2>
+          </div>
+          <div class="label-input">
+            <h2 id="User">Email</h2>
+          </div>
+          <div class="label-input">
+            <h2 id="User">Senha</h2>
+          </div>
+          <div class="label-input">
+            <h2 id="User">Confirme a Senha</h2>
+          </div>
+          <p id="Voltar">Ja tem uma conta? Faça Login</p>
+        </div>
         <div  class="page">
+         
         </div>
         <div id="backcover">
           <div id="side" class="">
-            <form id="registro">
+            <form id="registro" onsubmit="return false">
               <div class="label-input">
-                <h2 id="User">Usuário</h2>
-                <input type="text" />
+                <input id="userinput" type="text" />
               </div>
               <div class="label-input">
-                <h2 id="User">Email</h2>
-              <input type="text" /> 
+              <input id="emailinput" type="text" /> 
               </div>
               <div class="label-input">
-              <h2 id="User">Senha</h2>
-                <input type="text" />
+                <input id="passwordinput" type="text" />
                 </div>
                 <div class="label-input">
-                  <h2 id="User">Confirme a Senha</h2>
-                  <input type="text" /> 
+                  <input id="passwordconfirm" type="text" /> 
                 </div>
                 <button>Registrar</button>
-                <p id="Voltar">Ja tem uma conta? Faça Login</p>
               </form>
             </div>
           </div>
