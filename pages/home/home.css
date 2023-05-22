@@ -24,7 +24,7 @@
 }
 *{
   font-family: Magic;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 }
 
 #logo{
@@ -176,7 +176,10 @@ form{
   height: 60vh;
   width: 100%;
   min-width: 300px;
-  min-height: 600px;
+}
+#registro{
+  max-height: 100%;
+
 }
 .labels{
   display: grid;
@@ -184,7 +187,7 @@ form{
   height: 60vh;
   width: 100%;
   min-width: 300px;
-  min-height: 500px;
+  max-height: 70%;
 }
 
 #Voltar{
@@ -262,6 +265,8 @@ input{
   font-size: 20px;
   color:var(--lightpink);
   text-shadow: 2px 1px var(--bluetext);
+}
+.labels .label-input{
   animation: scaleLabel 5s forwards;
 }
 #login .label-input{
@@ -272,9 +277,11 @@ input{
   animation: none;
 }
 
-#btn{
-  width: 100px;
-  border-radius: 5%;
+.btn{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  padding: 1em;
   background-image: conic-gradient(var(--pink), var(--darkpink), var(--pink));
   color: #FFF;
   display: grid;
@@ -328,7 +335,7 @@ text-align: center;
   background-color: #424dad;
 }
 .books:nth-child(3) .books-cover{
-  background-color: #42a6ad;
+  background-color: #29306d;
 }
 .books:nth-child(1) .books-cover{
   background-color: #ad4254;
@@ -339,10 +346,10 @@ text-align: center;
   background-color: #9b753b;
 }
 .books:nth-child(2) .books-backcover{
-  background-color: #424dad;
+  background-color: #29306d;
 }
 .books:nth-child(3) .books-backcover{
-  background-color: #42a6ad;
+  background-color: #1c204b;
 }
 .books:nth-child(1) .books-backcover{
   background-color: #863543;

@@ -68,7 +68,7 @@
     background-color: #424dad;
   }
   .books:nth-child(3) .books-cover{
-    background-color: #42a6ad;
+    background-color: #29306d;
   }
   .books:nth-child(1) .books-cover{
     background-color: #ad4254;
@@ -82,7 +82,7 @@
     background-color: #424dad;
   }
   .books:nth-child(3) .books-backcover{
-    background-color: #42a6ad;
+    background-color: #1c204b;
   }
   .books:nth-child(1) .books-backcover{
     background-color: #863543;
@@ -105,6 +105,25 @@
     top: 98%;
     box-shadow: .1em .1em .3em .1em var(--shadow);
   }
-  p{
+  @font-face {
     font-family: Bloody;
+    src: url("../../fonts/BLOODY.TTF");
+  }
+  @font-face {
+    font-family: Rune;
+    src: url("../../fonts/firstorder3d.ttf");
+  }
+  @font-face {
+    font-family: Magic;
+    src: url("../../fonts/Magic.ttf");
+  }
+  *{
+    font-family: Magic;
+    letter-spacing: 2px;
+  }
+  p{
+    font-size: 25px;
+    text-align: center;
+    color:var(--gray);
+    text-shadow: 2px 1px var(--bluetext);
   }
