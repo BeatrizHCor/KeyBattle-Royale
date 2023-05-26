@@ -1,0 +1,78 @@
+@keyframes bookOpen {
+  30% {
+    z-index: 999;
+  }
+  100% {
+    z-index: 996;
+  }
+}
+@keyframes bookOpen170deg {
+  30% {
+    z-index: 999;
+  }
+  100% {
+    transform: rotateY(-170deg);
+    z-index: 997;
+  }
+}
+@keyframes bookOpen160deg {
+  30% {
+    z-index: 999;
+  }
+  100% {
+    transform: rotateY(-163deg);
+    z-index: 998;
+  }
+}
+@keyframes bookOpen150deg {
+  30% {
+    z-index: 999;
+  }
+  100% {
+    transform: rotateY(-150deg);
+    z-index: 999;
+  }
+}
+@keyframes bookCover {
+  70% {
+    z-index: 999;
+  }
+  100% {
+    z-index: 1;
+  }
+}
+@keyframes book {
+  100% {
+    margin-left: 50%;
+  }
+}
+
+@keyframes scale {
+  99.99% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes scaleLabel {
+  99.99% {
+    transform: scale(0);
+    color: var(--gray);
+    text-shadow: none;
+  }
+  100% {
+    transform: scale(1);
+    color: var(--lightpink);
+    transform: rotateY(180deg);
+    text-shadow: 2px 1px var(--bluetext);
+  }
+}
+@keyframes takeFrom {
+  0% {
+    transform: scale(0.5) translate(var(--leftStart), var(--topStart));
+  }
+  100% {
+    transform: scale(1);
+  }
+}

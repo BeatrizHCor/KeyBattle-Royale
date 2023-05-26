@@ -1,0 +1,17 @@
+@font-face {
+  font-family: Bloody;
+  src: url("../fonts/BLOODY.TTF");
+}
+@font-face {
+  font-family: Rune;
+  src: url("../fonts/firstorder3d.ttf");
+}
+@font-face {
+  font-family: Magic;
+  src: url("../fonts/Magic.ttf");
+}
+
+* {
+  font-family: Magic;
+  letter-spacing: 2px;
+}

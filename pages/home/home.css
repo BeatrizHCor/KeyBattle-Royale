@@ -1,3 +1,5 @@
+@import url(../common.css);
+@import url(../keyframes.css);
 :root {
   --dark: #8b7489;
   --gray: #f9d1d1;
@@ -9,22 +11,6 @@
   --shadow: rgb(99, 99, 102);
   --black: #161616;
   --bluetext: #1b1e42;
-}
-@font-face {
-  font-family: Bloody;
-  src: url("../../fonts/BLOODY.TTF");
-}
-@font-face {
-  font-family: Rune;
-  src: url("../../fonts/firstorder3d.ttf");
-}
-@font-face {
-  font-family: Magic;
-  src: url("../../fonts/Magic.ttf");
-}
-* {
-  font-family: Magic;
-  letter-spacing: 2px;
 }
 
 #logo {
@@ -60,6 +46,7 @@ body {
   perspective: 70em;
   transition: all 2s ease-in-out;
 }
+
 .card {
   border-radius: 5%;
   box-shadow: 0 0 0.5em 0.1em var(--shadow);
@@ -73,17 +60,11 @@ body {
   z-index: 1;
 }
 .card.inShelf {
+  --topStart: 94%;
+  --leftStart: 100%;
   animation: takeFrom 5s forwards;
 }
 
-@keyframes takeFrom {
-  0% {
-    transform: scale(0.5) translate(100%, 94%);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
 .cover {
   background-color: var(--pink);
   width: 85%;
@@ -130,6 +111,7 @@ body {
   transform: rotateY(-180deg) scaleX(1.1);
   z-index: 1;
   animation: bookCover 2s forwards;
+  background-color: var(--darkpink);
 }
 .page.turn {
   animation: bookOpen 3s forwards;
@@ -185,79 +167,6 @@ form {
 
 #Voltar {
   animation: scaleLabel 5s forwards;
-}
-
-@keyframes bookOpen {
-  30% {
-    z-index: 999;
-  }
-  100% {
-    z-index: 996;
-  }
-}
-@keyframes bookOpen170deg {
-  30% {
-    z-index: 999;
-  }
-  100% {
-    transform: rotateY(-170deg);
-    z-index: 997;
-  }
-}
-@keyframes bookOpen160deg {
-  30% {
-    z-index: 999;
-  }
-  100% {
-    transform: rotateY(-163deg);
-    z-index: 998;
-  }
-}
-@keyframes bookOpen150deg {
-  30% {
-    z-index: 999;
-  }
-  100% {
-    transform: rotateY(-150deg);
-    z-index: 999;
-  }
-}
-@keyframes bookCover {
-  70% {
-    z-index: 999;
-    background-color: var(--darkpink);
-  }
-  100% {
-    z-index: 1;
-    background-color: var(--darkpink);
-  }
-}
-@keyframes book {
-  100% {
-    margin-left: 50%;
-  }
-}
-
-@keyframes scale {
-  99.99% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes scaleLabel {
-  99.99% {
-    transform: scale(0);
-    color: var(--gray);
-    text-shadow: none;
-  }
-  100% {
-    transform: scale(1);
-    color: var(--lightpink);
-    transform: rotateY(180deg);
-    text-shadow: 2px 1px var(--bluetext);
-  }
 }
 
 input {
