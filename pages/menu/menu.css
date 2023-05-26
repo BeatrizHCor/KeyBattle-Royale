@@ -1,17 +1,5 @@
 @import url(../common.css);
 @import url(../keyframes.css);
-:root {
-  --dark: #8b7489;
-  --gray: #f9d1d1;
-  --darkgreen: #183b09;
-  --green: #4a872f;
-  --pink: #872f81;
-  --lightpink: #b476b0;
-  --darkpink: #501b4c;
-  --shadow: rgb(99, 99, 102);
-  --black: #161616;
-  --bluetext: #1b1e42;
-}
 
 body {
   background-color: var(--dark);
@@ -70,7 +58,7 @@ body {
   left: -25%;
   position: relative;
 }
-.book {
+.books:nth-child(1) {
   --leftStart: -130%;
   --topStart: 75%;
 }
@@ -176,6 +164,7 @@ p {
   z-index: -1;
   animation: bookCover 2s forwards;
   transition: transform 2s ease-in-out;
+  box-shadow: 0 0 1em 0.2em var(--darkgreen);
 }
 
 .books-side.inCenter {
@@ -187,6 +176,7 @@ p {
   position: absolute;
   border-radius: 0 1em 1em 0;
   z-index: 2;
+  box-shadow: inset 0 0 1em 0.3em var(--shadow);
 }
 
 .books-backcover.inCenter {
@@ -198,6 +188,7 @@ p {
   z-index: 0;
   left: 0%;
   top: 0%;
+  box-shadow: 0 0 1em 0.2em var(--darkgreen);
 }
 .pages.inCenter {
   width: 38%;
@@ -210,6 +201,7 @@ p {
   transform: rotateY(-180deg);
   transition: transform 4s ease-in-out;
   animation-delay: 1s;
+  box-shadow: inset 0 0 1em 0.3em var(--shadow);
 }
 .pages.inCenter:nth-child(2) {
   animation-delay: 1.2s;

@@ -15,3 +15,15 @@
   font-family: Magic;
   letter-spacing: 2px;
 }
+:root {
+  --dark: #8b7489;
+  --gray: #f9d1d1;
+  --darkgreen: #183b09;
+  --green: #4a872f;
+  --pink: #872f81;
+  --lightpink: #b476b0;
+  --darkpink: #501b4c;
+  --shadow: rgb(99, 99, 102);
+  --black: #161616;
+  --bluetext: #1b1e42;
+}
