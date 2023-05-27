@@ -1,79 +1,245 @@
-:root{
-    --gray: #D5C5D4;
-    --darkgreen: #183B09;
-    --green: #4A872F;
-    --pink: #872F81;
-    --darkpink: #501b4c;
-    --shadow: rgb(99, 99, 102);
-    --text: #fff;
-    --dark: #0b1354;
-    --selected: #a155b9;
-    --blue: #165baa;
-    --black: #161616;
-  }
+@import url(../common.css);
+@import url(../keyframes.css);
 
-#container{
-    width: 40%;
-    height: 50%;
-    position: absolute;
-    top: 25%;
-    left: 30%;
-    background-color: #161616;
-    border-radius: 5em;
-    display: grid;
-    place-content: center;
-    border: 3px double var(--blue);
-    box-shadow: inset 0 0 1em .5em var(--blue);
+body {
+  background-color: var(--dark);
+  margin: 0;
 }
 
-#menu{
-    margin-top: 30%;
-    display: grid;
-    place-content: center;
-    gap: 1em;
-    width: 100%;
-    height: 70%;
+#shelf {
+  width: 80%;
+  height: 30%;
+  top: 65%;
+  left: 13%;
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  justify-content: space-between;
 }
-body{
-    background-color: var(--black);
+.pages {
+  background-color: var(--gray);
+  width: 40%;
+  z-index: -2;
+  position: absolute;
+  box-shadow: inset 0 0 1em 0.5em var(--shadow);
 }
-#background1{
-  width: 100%;
-  height: 50%;
-  margin-top: -10em;
+.books {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+}
+
+.books-cover {
+  border-radius: 1em;
+  width: 85%;
+  height: 100%;
+  box-shadow: 0 0 0.2em 0.1em var(--shadow);
+  display: grid;
+  place-content: center;
+}
+
+.books-side {
+  width: 15%;
+  height: 98%;
+  top: 2%;
+  left: -8%;
+  background-color: var(--gray);
+  position: relative;
+  border-radius: 0 1em 1em 0;
+  z-index: -2;
+  box-shadow: inset 0 0 1em 0.5em var(--shadow);
+}
+.books-backcover {
+  z-index: -3;
+  border-radius: 1em;
+  width: 25%;
+  height: 100%;
+  left: -25%;
+  position: relative;
+}
+.books:nth-child(1) {
+  --leftStart: -130%;
+  --topStart: 75%;
+}
+.books:nth-child(2) {
+  left: 20%;
+  --leftStart: -80%;
+  --topStart: 75%;
+}
+.books:nth-child(3) {
+  left: 40%;
+  --leftStart: 0%;
+  --topStart: 75%;
+}
+.books:nth-child(4) {
+  left: 60%;
+  --leftStart: 50%;
+  --topStart: 75%;
+}
+.books:nth-child(5) {
+  left: 80%;
+  --leftStart: 130%;
+  --topStart: 75%;
+}
+
+.books:nth-child(2) .books-cover {
+  background-color: #424dad;
+}
+.books:nth-child(3) .books-cover {
+  background-color: #29306d;
+}
+.books:nth-child(1) .books-cover {
+  background-color: #ad4254;
+}
+
+.books:nth-child(5) .books-cover {
+  background-color: #9b753b;
+}
+.books:nth-child(2) .books-backcover {
+  background-color: #424dad;
+}
+.books:nth-child(3) .books-backcover {
+  background-color: #1c204b;
+}
+.books:nth-child(1) .books-backcover {
+  background-color: #863543;
+}
+.books:nth-child(4) .books-cover {
+  background-color: var(--pink);
+}
+.books:nth-child(5) .books-backcover {
+  background-color: #77612a;
+}
+.books:nth-child(4) .books-backcover {
+  background-color: var(--darkpink);
+}
+#shelf-bottom {
+  background-color: #835938;
+  width: 105%;
+  height: 10%;
+  left: -5%;
+  position: absolute;
+  top: 98%;
+  box-shadow: 0.1em 0.1em 0.3em 0.1em var(--shadow);
+}
+@font-face {
+  font-family: Bloody;
+  src: url("../../fonts/BLOODY.TTF");
+}
+@font-face {
+  font-family: Rune;
+  src: url("../../fonts/firstorder3d.ttf");
+}
+@font-face {
+  font-family: Magic;
+  src: url("../../fonts/Magic.ttf");
+}
+* {
+  font-family: Magic;
+  letter-spacing: 2px;
+}
+p {
+  font-size: 25px;
+  text-align: center;
+  color: var(--gray);
+  text-shadow: 2px 1px var(--bluetext);
+}
+
+.books.inCenter {
+  position: fixed;
+  left: 35%;
+  top: 25%;
+  z-index: 2;
+  max-height: 600px;
+  width: 50%;
+  animation: takeFrom 5s forwards;
+}
+
+.books-shadow.inCenter {
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  left: -40%;
+  top: 0;
+  background-image: conic-gradient(
+    var(--green),
+    var(--pink),
+    var(--green),
+    purple,
+    var(--green),
+    var(--pink),
+    purple
+  );
   filter: blur(10em);
-  background-image: radial-gradient(var(--blue), var(--dark));
+  animation: rotate 10s normal;
+  animation-iteration-count: infinite;
+  transform: scale(0);
+  animation-delay: 3s;
 }
-#logo{
-    height: 8vh;
-  }
-  
-  #header{
-    width: 100%;
-    color: var(--text);
-  }
-  #option{
-      color: var(--text);
-      text-align: center;
-      font-size: 2em;
-      font-weight: bold;
-      padding: .4em;
-      border-radius: 8em;
-      box-shadow: inset 0em 0 .5em .1em var(--shadow);
-      width: 100%;
-    }
-    .selected{
-      animation: animatedBackground 2s linear infinite alternate;
-      background-image: conic-gradient(var(--dark) 2%, var(--blue), var(--dark));
-      border: 5px double var(--dark)
-    }
-  @keyframes animatedBackground {
-    0%{
-        transform: scale(1, 1);
-    }
-    50% {
-        transform: scale(1.2, 1.2);
-    }
-    
-  }
-  
+
+.books-cover.inCenter {
+  width: 40%;
+  transform: rotateY(-180deg);
+  transform-origin: 0% 100%;
+  border-radius: 0em 1em 1em 0em;
+  z-index: -1;
+  animation: bookCover 2s forwards;
+  transition: transform 2s ease-in-out;
+}
+
+.books-side.inCenter {
+  width: 38%;
+  height: 98%;
+  top: 1%;
+  left: 0%;
+  background-color: var(--gray);
+  position: absolute;
+  border-radius: 0 1em 1em 0;
+  z-index: 2;
+  box-shadow: inset 0 0 1em 0.3em var(--shadow);
+}
+
+.books-backcover.inCenter {
+  width: 40%;
+  height: 100%;
+  background-color: var(--gray);
+  position: absolute;
+  border-radius: 0 1em 1em 0;
+  z-index: 0;
+  left: 0%;
+  top: 0%;
+}
+.pages.inCenter {
+  width: 38%;
+  height: 98%;
+  top: 1%;
+  transform-origin: 0% 100%;
+  position: absolute;
+  border-radius: 0 1em 1em 0;
+  animation: bookCover 3s forwards;
+  transform: rotateY(-180deg);
+  transition: transform 4s ease-in-out;
+  animation-delay: 1s;
+  box-shadow: inset 0 0 1em 0.3em var(--shadow);
+}
+.pages.inCenter:nth-child(2) {
+  animation-delay: 1.2s;
+  transition-delay: 0.2s;
+}
+.pages.inCenter:nth-child(3) {
+  animation-delay: 1.35s;
+  transition-delay: 0.35s;
+}
+.pages.inCenter:nth-child(4) {
+  animation-delay: 1.4s;
+  transition-delay: 0.4s;
+}
+.pages.inCenter:nth-child(5) {
+  animation-delay: 1.45s;
+  transition-delay: 0.45s;
+}
+.pages.inCenter:nth-child(6) {
+  animation-delay: 1.5s;
+  transition-delay: 0.5s;
+}

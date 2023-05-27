@@ -5,49 +5,105 @@
     <title>KeyBattle Royale</title>
   </head>
   <body>
-   
-
     <div id="content">
-      <div id="card" class=""> 
-        <div id="cover" class="">
-          <form id="login" class="">
+      <div class="card inShelf">
+        <div class="cover">
+          <form id="login" class="" onsubmit="return false">
             <div class="label-input">
-              <h1 id="User">Usuário</h1>
+              <h1 id="User">Usuario</h1>
               <input id="username-login" type="text" />
-
             </div>
             <div class="label-input">
               <h1 id="Password">Senha</h1>
               <input id="password-login" type="password" />
-
             </div>
-            <button id="btn" class="">Login</button>
-          <p id="registrar">Não tem uma conta? Crie uma</p>
+            <div class="label-input">
+              <button class="btn">
+                <img
+                  src="../../images/cute-skull.png"
+                  style="width: 80px; height: 80px"
+                />Login
+              </button>
+            </div>
+            <p id="registrar">Não tem uma conta? Crie uma</p>
           </form>
         </div>
-        <div  class="page"></div>
-        <div  class="page"></div>
-        <div  class="page"></div>
-        <div  class="page">
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page">
+          <div class="labels">
+            <div class="label-input">
+              <h2 id="User">Usuário</h2>
+            </div>
+            <div class="label-input">
+              <h2 id="User">Email</h2>
+            </div>
+            <div class="label-input">
+              <h2 id="User">Senha</h2>
+            </div>
+            <div class="label-input">
+              <h2 id="User">Confirme a Senha</h2>
+            </div>
+          </div>
+          <p id="Voltar">Ja tem uma conta? Faça Login</p>
         </div>
+        <div class="page"></div>
         <div id="backcover">
           <div id="side" class="">
-            <form>
-              <input type="text" />
-              <input type="text" /> 
-              <input type="text" /> 
-              <input type="text" /> 
-              <button>Registrar</button>
-              <p>Ja tem uma conta? Faça Login</p>
+            <form id="registro" onsubmit="return false">
+              <div class="label-input">
+                <input id="userinput" type="text" />
+              </div>
+              <div class="label-input">
+                <input id="emailinput" type="text" />
+              </div>
+              <div class="label-input">
+                <input id="passwordinput" type="password" />
+              </div>
+              <div class="label-input">
+                <input id="passwordconfirm" type="password" />
+              </div>
+              <div class="label-input">
+                <button class="btn">
+                  <img
+                    src="../../images/cute-skull.png"
+                    style="width: 80px; height: 80px"
+                  />Registrar
+                </button>
+              </div>
             </form>
-        </div>
-        </div>
-        
-        <div id="changer-right" class="changer" style="left: 60%; top: 80%">
+          </div>
         </div>
       </div>
     </div>
+    <div id="shelf">
+      <div class="books">
+        <div class="books-cover"></div>
+        <div class="books-side"></div>
+        <div class="books-backcover"></div>
+      </div>
+      <div class="books">
+        <div class="books-cover"></div>
+        <div class="books-side"></div>
+        <div class="books-backcover"></div>
+      </div>
+      <div class="books">
+        <div class="books-cover"></div>
+        <div class="books-side"></div>
+        <div class="books-backcover"></div>
+      </div>
+      <div class="books">
+        <div class="books-cover"></div>
+        <div class="books-side"></div>
+        <div class="books-backcover"></div>
+      </div>
+      <div class="books">
+        <div class="books-cover"></div>
+        <div class="books-side"></div>
+        <div class="books-backcover"></div>
+      </div>
+      <div id="shelf-bottom"></div>
+    </div>
   </body>
-  <script src="home.js">
-  </script>
+  <script src="home.js"></script>
 </html>
