@@ -2,7 +2,6 @@ let typed = "";
 let state = -1;
 let options1 = ["Novo Jogo", "Melhores Jogadores", "Finalizar Sessao"];
 let options2 = ["Novo Jogo", "Melhores Jogadores", "Finalizar Sessao"];
-
 let selected = {};
 let char = 0;
 const digitar = (e) => {

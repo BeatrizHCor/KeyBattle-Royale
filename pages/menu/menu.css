@@ -156,6 +156,28 @@ p {
   animation: takeFrom 5s forwards;
 }
 
+.books-shadow.inCenter {
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  left: -40%;
+  top: 0;
+  background-image: conic-gradient(
+    var(--green),
+    var(--pink),
+    var(--green),
+    purple,
+    var(--green),
+    var(--pink),
+    purple
+  );
+  filter: blur(10em);
+  animation: rotate 10s normal;
+  animation-iteration-count: infinite;
+  transform: scale(0);
+  animation-delay: 3s;
+}
+
 .books-cover.inCenter {
   width: 40%;
   transform: rotateY(-180deg);
@@ -164,7 +186,6 @@ p {
   z-index: -1;
   animation: bookCover 2s forwards;
   transition: transform 2s ease-in-out;
-  box-shadow: 0 0 1em 0.2em var(--darkgreen);
 }
 
 .books-side.inCenter {
@@ -188,7 +209,6 @@ p {
   z-index: 0;
   left: 0%;
   top: 0%;
-  box-shadow: 0 0 1em 0.2em var(--darkgreen);
 }
 .pages.inCenter {
   width: 38%;
