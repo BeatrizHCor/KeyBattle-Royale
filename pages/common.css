@@ -27,3 +27,10 @@
   --black: #161616;
   --bluetext: #1b1e42;
 }
+
+p {
+  font-size: 25px;
+  text-align: center;
+  color: var(--gray);
+  text-shadow: 2px 1px var(--bluetext);
+}

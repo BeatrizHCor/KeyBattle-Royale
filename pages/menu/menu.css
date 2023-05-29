@@ -38,6 +38,15 @@ body {
   display: grid;
   place-content: center;
 }
+.optionsGame {
+  display: grid;
+  place-content: space-evenly center;
+  height: 100%;
+}
+.optionsGame p {
+  transform: scale(0);
+  color: var(--darkpink);
+}
 
 .books-side {
   width: 15%;
@@ -123,28 +132,6 @@ body {
   top: 98%;
   box-shadow: 0.1em 0.1em 0.3em 0.1em var(--shadow);
 }
-@font-face {
-  font-family: Bloody;
-  src: url("../../fonts/BLOODY.TTF");
-}
-@font-face {
-  font-family: Rune;
-  src: url("../../fonts/firstorder3d.ttf");
-}
-@font-face {
-  font-family: Magic;
-  src: url("../../fonts/Magic.ttf");
-}
-* {
-  font-family: Magic;
-  letter-spacing: 2px;
-}
-p {
-  font-size: 25px;
-  text-align: center;
-  color: var(--gray);
-  text-shadow: 2px 1px var(--bluetext);
-}
 
 .books.inCenter {
   position: fixed;
@@ -223,6 +210,7 @@ p {
   animation-delay: 1s;
   box-shadow: inset 0 0 1em 0.3em var(--shadow);
 }
+
 .pages.inCenter:nth-child(2) {
   animation-delay: 1.2s;
   transition-delay: 0.2s;
@@ -242,4 +230,10 @@ p {
 .pages.inCenter:nth-child(6) {
   animation-delay: 1.5s;
   transition-delay: 0.5s;
+}
+
+.optionsGame.inCenter p {
+  transform: scale(1);
+  transition: transform 1s ease-in-out;
+  transition-delay: 3s;
 }
