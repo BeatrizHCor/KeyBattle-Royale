@@ -71,6 +71,7 @@ body {
 #registro {
   transform: scale(0);
 }
+
 #side {
   width: 95%;
   height: 98%;
@@ -151,8 +152,11 @@ form {
   width: 100%;
   min-width: 300px;
   max-height: 70%;
+  transform: scale(0);
 }
-
+.page.turn .labels {
+  animation: scale 2.4s forwards;
+}
 #Voltar {
   animation: scaleLabel 5s forwards;
 }
