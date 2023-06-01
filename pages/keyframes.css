@@ -88,3 +88,15 @@
     transform: scale(0.7) rotate(0deg);
   }
 }
+
+@keyframes jumpLetter {
+  15% {
+    transform: translate(0, -1%);
+  }
+  20% {
+    transform: translate(0, -30%);
+  }
+  25% {
+    transform: translate(0, -1%);
+  }
+}

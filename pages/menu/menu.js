@@ -1,72 +1,112 @@
 let typed = "";
-let state = -1;
-let options1 = ["Novo Jogo", "Melhores Jogadores", "Finalizar Sessao"];
-let options2 = ["Voltar"];
+let state = 0;
+let options1 = ["Novo Jogo", "Ligas", "Melhores Jogadores", "Finalizar Sessao"];
+let options2 = [
+  "Voltar",
+  "Casual",
+  "Ranqueado",
+  "Gerar Nova",
+  "Entrar",
+  "Ligas",
+  "Todos",
+];
 let selected = {};
 let char = 0;
 let isOpen = "";
+let selectedText = "";
+let selectedBook = "";
+
+const addColor = (i, param) => {
+  selectedText.children[i].style = ` text-shadow: 4px 4px 8px  ${gerenateRGB(
+    param
+  )}; `;
+};
+
+const resetColors = () => {
+  for (child of selectedText.children) {
+    child.style = "";
+  }
+  selectedText = "";
+};
+
+const gerenateRGB = (param) => {
+  let min = param == "light" ? 170 : param == "dark" ? 0 : 100;
+  let factor = param == "light" ? 86 : param == "dark" ? 81 : 156;
+  let r = Math.floor(Math.random() * factor) + min;
+  let g = Math.floor(Math.random() * factor) + min;
+  let b = Math.floor(Math.random() * factor) + min;
+  return `rgb(${r}, ${g}, ${b})`;
+};
 
 const digitar = (e) => {
   let key = e.code.replace("Key", "").replace("Space", " ");
   typed += key;
-  console.log(selected, state);
-  if (state == -1) {
-    selected = options1.find((opt) => opt[0].toUpperCase() == typed[0]);
+  if (state == 0) {
+    selected = options1.find((opt) => opt[0].toUpperCase() == key);
     if (!selected) {
       typed = "";
-      state = -1;
+      state = 0;
+      char = 0;
     } else {
       state = 1;
+      char = 1;
+      selectedText = document.getElementById(
+        selected.replace(" ", "_") + "_Text"
+      );
+      addColor(0, "light");
     }
-  }
-  if (state == 2) {
-    selected = options2.find((opt) => opt[0].toUpperCase() == typed[0]);
+  } else if (state == 2) {
+    selected = options2.find((opt) => opt[0].toUpperCase() == key);
+    console.log(selected);
+
     if (!selected) {
       typed = "";
       state = 2;
     } else {
       state = 3;
+      char = 1;
+      selectedText = document.getElementById(
+        selected.replace(" ", "_") + "_" + isOpen.replace(" ", "_")
+      );
+      addColor(0, "dark");
     }
-  }
-
-  if (state == 1 && typed.length > 1) {
-    for (let i = 1; i < typed.length; i++) {
-      if (selected[i].toUpperCase() != typed[i]) {
-        selected = undefined;
-        typed = "";
-        state = -1;
-        break;
-      } else {
-        char = i;
-      }
-      if (char == selected.length - 1) {
+  } else if (state == 1) {
+    if (selected[char].toUpperCase() != key) {
+      selected = undefined;
+      typed = "";
+      state = 0;
+      char = 0;
+      resetColors();
+    } else {
+      addColor(char, "light");
+      char += 1;
+      if (char == selected.length) {
         openBooks(selected.replace(" ", "_"));
         isOpen = selected;
         selected = undefined;
         typed = "";
         state = 2;
+        char = 0;
+        resetColors();
       }
     }
-  }
-  if (state == 3 && typed.length > 1) {
-    for (let i = 1; i < typed.length; i++) {
-      if (selected[i].toUpperCase() != typed[i]) {
-        selected = undefined;
-        typed = "";
-        state = 2;
-        break;
-      } else {
-        char = i;
-      }
-
-      if (char == selected.length - 1) {
+  } else if (state == 3) {
+    if (selected[char].toUpperCase() != key) {
+      selected = undefined;
+      typed = "";
+      state = 2;
+      char = 0;
+      resetColors();
+    } else {
+      addColor(char, "dark");
+      char += 1;
+      if (char == selected.length) {
         if (selected == "Voltar") {
           closeBooks(isOpen.replace(" ", "_"));
           selected = undefined;
           typed = "";
-          state = -1;
-        } else {
-          null;
+          state = 0;
+          resetColors();
         }
       }
     }

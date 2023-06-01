@@ -34,3 +34,8 @@ p {
   color: var(--gray);
   text-shadow: 2px 1px var(--bluetext);
 }
+
+body {
+  background-color: var(--gray);
+  padding: 0;
+}
