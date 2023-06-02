@@ -20,6 +20,7 @@
   --gray: #f9d1d1;
   --darkgreen: #183b09;
   --green: #4a872f;
+  --emerald: #b89e9e;
   --pink: #872f81;
   --lightpink: #b476b0;
   --darkpink: #501b4c;
@@ -32,7 +33,7 @@ p {
   font-size: 25px;
   text-align: center;
   color: var(--gray);
-  text-shadow: 2px 1px var(--bluetext);
+  text-shadow: 1px 1px var(--bluetext), -1px -1px var(--bluetext);
 }
 
 body {

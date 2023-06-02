@@ -17,7 +17,7 @@ let selectedText = "";
 let selectedBook = "";
 
 const addColor = (i, param) => {
-  selectedText.children[i].style = ` text-shadow: 4px 4px 8px  ${gerenateRGB(
+  selectedText.children[i].style = ` text-shadow: 1px 4px 9px  ${gerenateRGB(
     param
   )}; `;
 };
@@ -31,7 +31,7 @@ const resetColors = () => {
 
 const gerenateRGB = (param) => {
   let min = param == "light" ? 170 : param == "dark" ? 0 : 100;
-  let factor = param == "light" ? 86 : param == "dark" ? 81 : 156;
+  let factor = param == "light" ? 86 : param == "dark" ? 40 : 156;
   let r = Math.floor(Math.random() * factor) + min;
   let g = Math.floor(Math.random() * factor) + min;
   let b = Math.floor(Math.random() * factor) + min;
@@ -81,13 +81,17 @@ const digitar = (e) => {
       addColor(char, "light");
       char += 1;
       if (char == selected.length) {
-        openBooks(selected.replace(" ", "_"));
-        isOpen = selected;
-        selected = undefined;
-        typed = "";
-        state = 2;
-        char = 0;
-        resetColors();
+        if (selected == "Finalizar Sessao") {
+          location.href = "/KeyBattle-Royale/pages/home/home.html";
+        } else {
+          openBooks(selected.replace(" ", "_"));
+          isOpen = selected;
+          selected = undefined;
+          typed = "";
+          state = 2;
+          char = 0;
+          resetColors();
+        }
       }
     }
   } else if (state == 3) {

@@ -154,8 +154,14 @@ form {
   max-height: 70%;
   transform: scale(0);
 }
+#Voltar {
+  transform: scale(0);
+}
+.page.turn #Voltar {
+  animation: scale 2.8s forwards;
+}
 .page.turn .labels {
-  animation: scale 2.4s forwards;
+  animation: scale 2.8s forwards;
 }
 #Voltar {
   animation: scaleLabel 5s forwards;
