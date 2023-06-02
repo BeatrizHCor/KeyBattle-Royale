@@ -1,6 +1,6 @@
 let typed = "";
 let state = 0;
-let options1 = ["Novo Jogo", "Ligas", "Melhores Jogadores", "Finalizar Sessao"];
+let options1 = ["Novo Jogo", "Ligas", "Melhores Jogadores", "Sair"];
 let options2 = [
   "Voltar",
   "Casual",
@@ -81,7 +81,7 @@ const digitar = (e) => {
       addColor(char, "light");
       char += 1;
       if (char == selected.length) {
-        if (selected == "Finalizar Sessao") {
+        if (selected == "Sair") {
           location.href = "/KeyBattle-Royale/pages/home/home.html";
         } else {
           openBooks(selected.replace(" ", "_"));

@@ -145,6 +145,9 @@ form {
 #registro {
   max-height: 100%;
 }
+#registro .btn {
+  transform: rotateY(180deg);
+}
 .labels {
   display: grid;
   place-content: space-evenly center;
@@ -154,17 +157,9 @@ form {
   max-height: 70%;
   transform: scale(0);
 }
-#Voltar {
-  transform: scale(0);
-}
-.page.turn #Voltar {
-  animation: scale 2.8s forwards;
-}
+
 .page.turn .labels {
   animation: scale 2.8s forwards;
-}
-#Voltar {
-  animation: scaleLabel 5s forwards;
 }
 
 input {
@@ -188,6 +183,9 @@ input {
 .labels .label-input {
   animation: scaleLabel 5s forwards;
 }
+.label-input {
+  animation: scaleLabel 5s forwards;
+}
 #login .label-input {
   font-size: 25px;
   color: var(--gray);
@@ -200,7 +198,7 @@ input {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  padding: 1em;
+  padding: 1.2em;
   background-image: conic-gradient(var(--pink), var(--darkpink), var(--pink));
   color: #fff;
   display: grid;
