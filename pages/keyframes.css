@@ -100,3 +100,74 @@
     transform: translate(0, -1%);
   }
 }
+
+@keyframes blink {
+  0% {
+    border: 1px solid var(--borderColor);
+    box-shadow: inset 0 0 16px 8px var(--shadowColor);
+  }
+  5% {
+    border: none;
+    box-shadow: none;
+  }
+  23% {
+    border: none;
+    box-shadow: none;
+  }
+  24% {
+    border: 1px solid var(--borderColor);
+    box-shadow: inset 0 0 16px 8px var(--shadowColor);
+  }
+  30% {
+    border: none;
+    box-shadow: none;
+  }
+  43% {
+    border: none;
+    box-shadow: none;
+  }
+  44% {
+    border: 1px solid var(--borderColor);
+    box-shadow: inset 0 0 16px 8px var(--shadowColor);
+  }
+  50% {
+    border: none;
+    box-shadow: none;
+  }
+  63% {
+    border: none;
+    box-shadow: none;
+  }
+  64% {
+    border: 1px solid var(--borderColor);
+    box-shadow: inset 0 0 16px 8px var(--shadowColor);
+  }
+  70% {
+    border: none;
+    box-shadow: none;
+  }
+  83% {
+    border: none;
+    box-shadow: none;
+  }
+  84% {
+    border: 1px solid var(--borderColor);
+    box-shadow: inset 0 0 16px 8px var(--shadowColor);
+  }
+  90% {
+    border: none;
+    box-shadow: none;
+  }
+  98% {
+    border: none;
+    box-shadow: none;
+  }
+  99% {
+    border: 1px solid var(--borderColor);
+    box-shadow: inset 0 0 16px 8px var(--shadowColor);
+  }
+  100% {
+    border: none;
+    box-shadow: none;
+  }
+}

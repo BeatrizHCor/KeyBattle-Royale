@@ -1,6 +1,6 @@
 let typed = "";
 let state = 0;
-let options1 = ["Novo Jogo", "Ligas", "Melhores Jogadores", "Sair"];
+let options1 = ["Novo Jogo", "Ligas", "Melhores Jogadores", "Tutorial", "Sair"];
 let options2 = [
   "Voltar",
   "Casual",

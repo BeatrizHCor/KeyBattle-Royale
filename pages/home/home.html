@@ -8,7 +8,11 @@
     <div id="content">
       <div class="card inShelf">
         <div class="cover">
-          <form id="login" class="" onsubmit="return false">
+          <form
+            id="login"
+            class=""
+            onsubmit="location.href = '/KeyBattle-Royale/pages/menu/menu.html'"
+          >
             <div class="label-input">
               <h1 id="User">Usuário</h1>
               <input id="username-login" type="text" />
@@ -22,7 +26,7 @@
                 <img
                   src="../../images/cute-skull.png"
                   style="width: 60px; height: 60px"
-                  onclick="location.href = '/KeyBattle-Royale/pages/menu/menu.html'"
+                  type="submit"
                 />Login
               </button>
             </div>
@@ -51,7 +55,10 @@
         <div class="page"></div>
         <div id="backcover">
           <div id="side" class="">
-            <form id="registro" onsubmit="return false">
+            <form
+              id="registro"
+              onsubmit="location.href = '/KeyBattle-Royale/pages/menu/menu.html'"
+            >
               <div class="label-input">
                 <input id="userinput" type="text" />
               </div>
@@ -65,10 +72,7 @@
                 <input id="passwordconfirm" type="password" />
               </div>
               <div class="label-input">
-                <button
-                  class="btn"
-                  onclick="location.href = '/KeyBattle-Royale/pages/menu/menu.html'"
-                >
+                <button class="btn" type="submit">
                   <img
                     src="../../images/cute-skull.png"
                     style="width: 80px; height: 80px"
