@@ -57,7 +57,6 @@ const digitar = (e) => {
     }
   } else if (state == 2) {
     selected = options2.find((opt) => opt[0].toUpperCase() == key);
-    console.log(selected);
 
     if (!selected) {
       typed = "";
@@ -104,7 +103,11 @@ const digitar = (e) => {
     } else {
       addColor(char, "dark");
       char += 1;
+      console.log(char);
       if (char == selected.length) {
+        if (selected == "Casual") {
+          location.href = "/KeyBattle-Royale/pages/game/game.html";
+        }
         if (selected == "Voltar") {
           closeBooks(isOpen.replace(" ", "_"));
           selected = undefined;

@@ -60,3 +60,7 @@ function debounce(func, timeout = 300) {
     }, timeout);
   };
 }
+
+const loginFunction = () => {
+  location.href = "/KeyBattle-Royale/pages/menu/menu.html";
+};
