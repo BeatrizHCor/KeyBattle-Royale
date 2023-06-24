@@ -145,9 +145,7 @@ form {
 #registro {
   max-height: 100%;
 }
-#registro .btn {
-  transform: rotateY(180deg);
-}
+
 .labels {
   display: grid;
   place-content: space-evenly center;
