@@ -102,6 +102,7 @@ body {
   animation: bookCover 2s forwards;
   background-color: var(--darkpink);
 }
+
 .page.turn {
   animation: bookOpen 3s forwards;
   transition: all 2s ease-in-out;
@@ -174,7 +175,7 @@ input {
   display: grid;
   place-content: center;
   letter-spacing: 3px;
-  font-size: 20px;
+  font-size: 15px;
   color: var(--lightpink);
   text-shadow: 2px 1px var(--bluetext);
 }
@@ -297,4 +298,11 @@ p {
 
 #registro.closed {
   transform: scale(0);
+}
+
+.erro{
+  color: rgb(194, 2, 2);
+   font-size: 15px;
+   font-family: Bloody;
+   text-shadow: none;
 }
