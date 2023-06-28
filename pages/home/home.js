@@ -64,7 +64,7 @@ function debounce(func, timeout = 300) {
 const loginFunction = async (e) => {
   e.preventDefault();
   let erro = false;
-  let username = document.getElementById("username-login").value;
+  let username = document.getElementById("username-login").value.trim();
   let password = document.getElementById("password-login").value;
   let form_name = document.getElementById("form_name_login").value;
   let resp = await (
@@ -92,9 +92,9 @@ const registerFunction = async (e) => {
   e.preventDefault();
   let elements = document.getElementById("registro").elements;
   let form_name = elements[0].value;
-  let usernameReg = elements[1].value;
+  let usernameReg = elements[1].value.trim();
   let passwordReg = elements[3].value;
-  let emailReg = elements[2].value;
+  let emailReg = elements[2].value.trim();
   let passwordConfReg = elements[4].value;
   let resp = await (
     await fetch("./login.php", {

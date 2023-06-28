@@ -57,6 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["form_name"] == "registro") {
     if (empty($_POST["emailReg"])) {
         $erro_email = "Email não pode estar vazio";
         $erro = true;
+    } else if (!filter_var($_POST["emailReg"], FILTER_VALIDATE_EMAIL)) {
+        $erro_email = "Email não é valido";
+        $erro = true;
     } else {
         $email_reg = $_POST["emailReg"];
     }
