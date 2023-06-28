@@ -61,6 +61,71 @@ function debounce(func, timeout = 300) {
   };
 }
 
-const loginFunction = () => {
-  location.href = "/KeyBattle-Royale/pages/menu/menu.html";
+const loginFunction = async (e) => {
+  e.preventDefault();
+  let erro = false;
+  let username = document.getElementById("username-login").value;
+  let password = document.getElementById("password-login").value;
+  let form_name = document.getElementById("form_name_login").value;
+  let resp = await (
+    await fetch("./login.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({ username, password, form_name }),
+    })
+  ).json();
+  for (key of Object.keys(resp)) {
+    if (!erro && resp[key] != "") {
+      erro = true;
+      console.log(erro);
+    }
+    document.getElementById(key).innerHTML = resp[key];
+  }
+  if (!erro) {
+    window.location.href = "/pages/menu/menu.html";
+  }
+};
+
+const registerFunction = async (e) => {
+  e.preventDefault();
+  let elements = document.getElementById("registro").elements;
+  let form_name = elements[0].value;
+  let usernameReg = elements[1].value;
+  let passwordReg = elements[3].value;
+  let emailReg = elements[2].value;
+  let passwordConfReg = elements[4].value;
+  let resp = await (
+    await fetch("./login.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        usernameReg,
+        passwordReg,
+        emailReg,
+        passwordConfReg,
+        form_name,
+      }),
+    })
+  ).json();
+  for (key of Object.keys(resp)) {
+    document.getElementById(key).innerHTML = resp[key];
+  }
+  let login = await (
+    await fetch("./login.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        usernameReg,
+        passwordReg,
+        form_name: "login",
+      }),
+    })
+  ).json();
+  window.location.href = "/pages/menu/menu.html";
 };

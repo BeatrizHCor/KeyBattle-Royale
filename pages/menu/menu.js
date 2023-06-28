@@ -81,7 +81,7 @@ const digitar = (e) => {
       char += 1;
       if (char == selected.length) {
         if (selected == "Sair") {
-          location.href = "/KeyBattle-Royale/pages/home/home.html";
+          location.href = "/pages/home/home.html";
         } else {
           openBooks(selected.replace(" ", "_"));
           isOpen = selected;

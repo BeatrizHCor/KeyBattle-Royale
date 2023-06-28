@@ -300,9 +300,14 @@ p {
   transform: scale(0);
 }
 
-.erro{
+.erro {
   color: rgb(194, 2, 2);
-   font-size: 15px;
-   font-family: Bloody;
-   text-shadow: none;
+  font-size: 15px;
+  font-family: Bloody;
+  text-shadow: none;
+}
+
+.grid-center {
+  display: grid;
+  place-content: center;
 }

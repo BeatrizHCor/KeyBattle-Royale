@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="./home.css" />
+    <link type="image/x-icon" rel="icon" href="../../images/favicon.svg" />
+    <title>KeyBattle Royale</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="card inShelf">
+        <div class="cover">
+          <form id="login" onsubmit="loginFunction(event)">
+            <input name="form_name" id="form_name_login" hidden value="login" />
+            <div class="label-input">
+              <h1 id="User">Usuário</h1>
+              <input id="username-login" name="username" type="text" />
+              <p id="erro_username" class="erro"></p>
+            </div>
+            <div class="label-input">
+              <h1 id="Password">Senha</h1>
+              <input id="password-login" type="password" name="password" />
+              <p id="erro_password" class="erro"></p>
+            </div>
+            <div class="label-input">
+              <button class="btn" type="submit">
+                <img
+                  src="../../images/cute-skull.png"
+                  style="width: 60px; height: 60px"
+                />Login
+              </button>
+            </div>
+            <p id="mensagem" class="erro"></p>
+            <p id="registrar">Não tem uma conta? Crie uma</p>
+          </form>
+        </div>
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page">
+          <div class="labels">
+            <div class="label-input">
+              <h2 id="User">Usuário</h2>
+            </div>
+            <div class="label-input">
+              <h2 id="User">Email</h2>
+            </div>
+            <div class="label-input">
+              <h2 id="User">Senha</h2>
+            </div>
+            <div class="label-input">
+              <h2 id="User">Confirme sua Senha</h2>
+            </div>
+          </div>
+          <p id="Voltar" class="label-input">Ja tem uma conta? Entre com ela</p>
+        </div>
+        <div class="page"></div>
+        <div id="backcover">
+          <div id="side" class="">
+            <form
+              id="registro"
+              onsubmit="registerFunction(event)"
+              class="grid-center"
+            >
+              <input name="form_name" hidden value="registro" />
+              <div class="grid-center">
+                <input id="userinput" name="usernameReg" type="text" />
+                <p id="erro_usernameReg" class="erro"></p>
+              </div>
+              <div class="grid-center">
+                <input id="emailinput" name="emailReg" type="text" />
+                <p id="erro_email" class="erro"></p>
+              </div>
+              <div class="grid-center">
+                <input id="passwordinput" name="passwordReg" type="password" />
+                <p id="erro_passwordReg" class="erro"></p>
+              </div>
+              <div class="grid-center">
+                <input
+                  id="passwordconfirm"
+                  name="passwordConfReg"
+                  type="password"
+                />
+                <p id="erro_confsenha" class="erro"></p>
+              </div>
+              <div class="grid-center">
+                <button class="btn" type="submit">
+                  <img
+                    src="../../images/cute-skull.png"
+                    style="width: 80px; height: 80px"
+                  />Registrar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="shelf">
+      <div class="books">
+        <div class="books-cover"></div>
+        <div class="books-side"></div>
+        <div class="books-backcover"></div>
+      </div>
+      <div class="books">
+        <div class="books-cover"></div>
+        <div class="books-side"></div>
+        <div class="books-backcover"></div>
+      </div>
+      <div class="books">
+        <div class="books-cover"></div>
+        <div class="books-side"></div>
+        <div class="books-backcover"></div>
+      </div>
+      <div class="books">
+        <div class="books-cover"></div>
+        <div class="books-side"></div>
+        <div class="books-backcover"></div>
+      </div>
+      <div class="books">
+        <div class="books-cover"></div>
+        <div class="books-side"></div>
+        <div class="books-backcover"></div>
+      </div>
+      <div id="shelf-bottom"></div>
+    </div>
+  </body>
+  <script src="home.js"></script>
+</html>
