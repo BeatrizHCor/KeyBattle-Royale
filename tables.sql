@@ -12,9 +12,14 @@ adm BIGINT UNSIGNED NOT NULL, foreign key (adm) references auth_user(id));
 
 Create Table scores_player(id serial primary key,
 score int NOT NULL,
-date date NOT NULL,
+date datetime NOT NULL,
 league BIGINT UNSIGNED NOT NULL NOT NULL,
 foreign key (league) references league(id),
 player BIGINT UNSIGNED NOT NULL NOT NULL,
-foreign key (player) references auth_user(id)
+foreign key (player) references auth_user(id));
+
+Create Table league_player(player BIGINT UNSIGNED NOT NULL NOT NULL,
+foreign key (player) references auth_user(id),
+league BIGINT UNSIGNED NOT NULL NOT NULL,
+foreign key (league) references league(id)
 );
