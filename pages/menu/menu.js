@@ -161,6 +161,7 @@ const closeBooks = (id) => {
 const registerLeagueForm = () => {
   let form = document.getElementById("leagueform");
   form.innerHTML = "";
+  form.setAttribute("onsubmit", "registerLeague(event)")
   let nameI = document.createElement("input");
   nameI.setAttribute("name", "name");
   nameI.setAttribute("type", "text");
