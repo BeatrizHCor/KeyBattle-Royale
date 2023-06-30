@@ -79,12 +79,13 @@ input {
   color: #fff;
   display: grid;
   place-content: center;
+  justify-self: center;
+  align-self: center;
 }
 
 form {
   display: grid;
   place-content: space-evenly center;
-  height: 60vh;
+  height: 100%;
   width: 100%;
-  min-width: 300px;
 }

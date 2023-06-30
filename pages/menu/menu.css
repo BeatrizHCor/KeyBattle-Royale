@@ -318,9 +318,5 @@ p span {
   transition-delay: 3s;
 }
 .sideform {
-  transform: scale(0);
-}
-.sideform.inCenter {
-  transform: scale(1) rotateY(-180deg);
-  transition: transform 3s ease-in-out;
+  transform: rotateY(-180deg);
 }

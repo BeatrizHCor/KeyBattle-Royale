@@ -164,6 +164,8 @@ const registerLeagueForm = () => {
   let nameI = document.createElement("input");
   nameI.setAttribute("name", "name");
   nameI.setAttribute("type", "text");
+  nameI.setAttribute("id", "league-name");
+
   let nameL = document.createElement("h1");
   nameL.innerHTML = "Nome da Liga";
   let nameD = document.createElement("div");
@@ -177,6 +179,7 @@ const registerLeagueForm = () => {
   let passwordI = document.createElement("input");
   passwordI.setAttribute("name", "password");
   passwordI.setAttribute("type", "text");
+  passwordI.setAttribute("id", "league-pass");
   let passwordL = document.createElement("h1");
   passwordL.innerHTML = "Senha";
   let passwordD = document.createElement("div");
@@ -217,6 +220,7 @@ const enterLeagueForm = () => {
   let nameI = document.createElement("input");
   nameI.setAttribute("name", "name");
   nameI.setAttribute("type", "text");
+  nameI.setAttribute("id", "league-name");
   let nameL = document.createElement("h1");
   nameL.innerHTML = "Nome da Liga";
   let nameD = document.createElement("div");
@@ -230,6 +234,7 @@ const enterLeagueForm = () => {
   let passwordI = document.createElement("input");
   passwordI.setAttribute("name", "password");
   passwordI.setAttribute("type", "text");
+  passwordI.setAttribute("id", "league-pass");
   let passwordL = document.createElement("h1");
   passwordL.innerHTML = "Senha";
   let passwordD = document.createElement("div");
@@ -237,7 +242,6 @@ const enterLeagueForm = () => {
   let passwordEr = document.createElement("p");
   passwordEr.classList.add("erro");
   passwordEr.setAttribute("id", "erro_password");
-
   let btn = document.createElement("button");
   btn.setAttribute("type", "submit");
   btn.classList.add("btn");
@@ -245,10 +249,36 @@ const enterLeagueForm = () => {
   passwordD.appendChild(passwordL);
   passwordD.appendChild(passwordI);
   passwordD.appendChild(passwordEr);
-
   form.appendChild(nameD);
   form.appendChild(passwordD);
   form.appendChild(btn);
 };
 
 document.getElementsByTagName("body")[0].addEventListener("keydown", digitar);
+
+const registerLeague = async (e) => {
+  e.preventDefault();
+  let erro = false;
+  let username = document.getElementById("username-login").value.trim();
+  let password = document.getElementById("password-login").value;
+  let form_name = document.getElementById("form_name_login").value;
+  let resp = await (
+    await fetch("./login.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({ username, password, form_name }),
+    })
+  ).json();
+  for (key of Object.keys(resp)) {
+    if (!erro && resp[key] != "") {
+      erro = true;
+      console.log(erro);
+    }
+    document.getElementById(key).innerHTML = resp[key];
+  }
+  if (!erro) {
+    window.location.href = "/pages/menu/menu.html";
+  }
+};
