@@ -8,6 +8,7 @@ password varchar(100)NOT NULL);
 
 Create Table league(id serial primary key,
 name varchar(20) NOT NULL,
+keyword varchar(100) NOT NULL,
 adm BIGINT UNSIGNED NOT NULL, foreign key (adm) references auth_user(id));
 
 Create Table scores_player(id serial primary key,

@@ -4,6 +4,8 @@
 body {
   background-color: var(--dark);
   margin: 0;
+  z-index: -1;
+  position: relative;
 }
 .center {
   position: absolute;
@@ -314,4 +316,11 @@ p span {
   transform: scale(1);
   transition: transform 1s ease-in-out;
   transition-delay: 3s;
+}
+.sideform {
+  transform: scale(0);
+}
+.sideform.inCenter {
+  transform: scale(1) rotateY(-180deg);
+  transition: transform 3s ease-in-out;
 }

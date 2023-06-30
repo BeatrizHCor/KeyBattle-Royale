@@ -90,6 +90,7 @@ const loginFunction = async (e) => {
 
 const registerFunction = async (e) => {
   e.preventDefault();
+  let erro = false;
   let elements = document.getElementById("registro").elements;
   let form_name = elements[0].value;
   let usernameReg = elements[1].value.trim();
@@ -112,20 +113,26 @@ const registerFunction = async (e) => {
     })
   ).json();
   for (key of Object.keys(resp)) {
+    if (!erro && resp[key] != "") {
+      erro = true;
+      console.log(erro);
+    }
     document.getElementById(key).innerHTML = resp[key];
   }
-  let login = await (
-    await fetch("./login.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams({
-        usernameReg,
-        passwordReg,
-        form_name: "login",
-      }),
-    })
-  ).json();
-  window.location.href = "/pages/menu/menu.html";
+  if (!erro) {
+    await (
+      await fetch("./login.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          usernameReg,
+          passwordReg,
+          form_name: "login",
+        }),
+      })
+    ).json();
+    window.location.href = "/pages/menu/menu.html";
+  }
 };

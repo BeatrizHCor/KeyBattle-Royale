@@ -108,6 +108,22 @@ const digitar = (e) => {
         if (selected == "Casual") {
           location.href = "/KeyBattle-Royale/pages/game/game.html";
         }
+        if (selected == "Gerar Nova") {
+          registerLeagueForm();
+          selected = undefined;
+          typed = "";
+          state = 4;
+          char = 0;
+          resetColors();
+        }
+        if (selected == "Entrar") {
+          enterLeagueForm();
+          selected = undefined;
+          typed = "";
+          state = 4;
+          char = 0;
+          resetColors();
+        }
         if (selected == "Voltar") {
           closeBooks(isOpen.replace(" ", "_"));
           selected = undefined;
@@ -140,6 +156,99 @@ const closeBooks = (id) => {
       child2.classList.remove("inCenter");
     }
   }
+};
+
+const registerLeagueForm = () => {
+  let form = document.getElementById("leagueform");
+  form.innerHTML = "";
+  let nameI = document.createElement("input");
+  nameI.setAttribute("name", "name");
+  nameI.setAttribute("type", "text");
+  let nameL = document.createElement("h1");
+  nameL.innerHTML = "Nome da Liga";
+  let nameD = document.createElement("div");
+  nameD.classList.add("label-input");
+  let nameEr = document.createElement("p");
+  nameEr.classList.add("erro");
+  nameEr.setAttribute("id", "erro_name");
+  nameD.appendChild(nameL);
+  nameD.appendChild(nameI);
+  nameD.appendChild(nameEr);
+  let passwordI = document.createElement("input");
+  passwordI.setAttribute("name", "password");
+  passwordI.setAttribute("type", "text");
+  let passwordL = document.createElement("h1");
+  passwordL.innerHTML = "Senha";
+  let passwordD = document.createElement("div");
+  passwordD.classList.add("label-input");
+  let passwordEr = document.createElement("p");
+  passwordEr.classList.add("erro");
+  passwordEr.setAttribute("id", "erro_password");
+  passwordD.appendChild(passwordL);
+  passwordD.appendChild(passwordI);
+  passwordD.appendChild(passwordEr);
+  let confpassI = document.createElement("input");
+  confpassI.setAttribute("name", "confpass");
+  confpassI.setAttribute("type", "text");
+  let confpassL = document.createElement("h1");
+  confpassL.innerHTML = "Confirme a senha";
+  let confpassD = document.createElement("div");
+  confpassD.classList.add("label-input");
+  let confpassEr = document.createElement("p");
+  confpassEr.classList.add("erro");
+  confpassEr.setAttribute("id", "erro_confpass");
+  confpassD.appendChild(confpassL);
+  confpassD.appendChild(confpassI);
+  confpassD.appendChild(confpassEr);
+
+  let btn = document.createElement("button");
+  btn.setAttribute("type", "submit");
+  btn.classList.add("btn");
+  btn.innerHTML = "Criar";
+  form.appendChild(nameD);
+  form.appendChild(passwordD);
+  form.appendChild(confpassD);
+  form.appendChild(btn);
+};
+
+const enterLeagueForm = () => {
+  let form = document.getElementById("leagueform");
+  form.innerHTML = "";
+  let nameI = document.createElement("input");
+  nameI.setAttribute("name", "name");
+  nameI.setAttribute("type", "text");
+  let nameL = document.createElement("h1");
+  nameL.innerHTML = "Nome da Liga";
+  let nameD = document.createElement("div");
+  nameD.classList.add("label-input");
+  let nameEr = document.createElement("p");
+  nameEr.classList.add("erro");
+  nameEr.setAttribute("id", "erro_name");
+  nameD.appendChild(nameL);
+  nameD.appendChild(nameI);
+  nameD.appendChild(nameEr);
+  let passwordI = document.createElement("input");
+  passwordI.setAttribute("name", "password");
+  passwordI.setAttribute("type", "text");
+  let passwordL = document.createElement("h1");
+  passwordL.innerHTML = "Senha";
+  let passwordD = document.createElement("div");
+  passwordD.classList.add("label-input");
+  let passwordEr = document.createElement("p");
+  passwordEr.classList.add("erro");
+  passwordEr.setAttribute("id", "erro_password");
+
+  let btn = document.createElement("button");
+  btn.setAttribute("type", "submit");
+  btn.classList.add("btn");
+  btn.innerHTML = "Entrar";
+  passwordD.appendChild(passwordL);
+  passwordD.appendChild(passwordI);
+  passwordD.appendChild(passwordEr);
+
+  form.appendChild(nameD);
+  form.appendChild(passwordD);
+  form.appendChild(btn);
 };
 
 document.getElementsByTagName("body")[0].addEventListener("keydown", digitar);

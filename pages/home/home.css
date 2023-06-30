@@ -136,13 +136,6 @@ body {
   animation: scale 3s forwards;
 }
 
-form {
-  display: grid;
-  place-content: space-evenly center;
-  height: 60vh;
-  width: 100%;
-  min-width: 300px;
-}
 #registro {
   max-height: 100%;
 }
@@ -161,24 +154,6 @@ form {
   animation: scale 2.8s forwards;
 }
 
-input {
-  border-radius: 5%;
-  height: 4vh;
-  border: none;
-  box-shadow: 0 0 0.1em 0.1em var(--bluetext);
-  background-color: transparent;
-  text-align: center;
-  font-size: 20px;
-}
-.label-input {
-  text-align: center;
-  display: grid;
-  place-content: center;
-  letter-spacing: 3px;
-  font-size: 15px;
-  color: var(--lightpink);
-  text-shadow: 2px 1px var(--bluetext);
-}
 .labels .label-input {
   animation: scaleLabel 5s forwards;
 }
@@ -300,14 +275,7 @@ p {
   transform: scale(0);
 }
 
-.erro {
-  color: rgb(194, 2, 2);
-  font-size: 15px;
-  font-family: Bloody;
-  text-shadow: none;
-}
-
 .grid-center {
   display: grid;
-  place-content: center;
+  place-content: space-evenly center;
 }
