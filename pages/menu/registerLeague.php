@@ -14,11 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $name = htmlspecialchars(stripslashes(trim($_POST["name"])));
     }
-    if (empty($_POST["adm"])) {
+    if (empty($_SESSION["id"])) {
         $messenger = "Algo deu errado. Atualize a página e tente novamente";
         $erro = true;
     } else {
-        $adm = $_POST["adm"];
+        $adm = $_SESSION["id"];
     }
     if (empty($_POST["password"])) {
         $erro_password = "Senha não pode estar vazia";

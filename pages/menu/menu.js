@@ -166,7 +166,6 @@ const registerLeagueForm = () => {
   nameI.setAttribute("name", "name");
   nameI.setAttribute("type", "text");
   nameI.setAttribute("id", "league-name");
-
   let nameL = document.createElement("h1");
   nameL.innerHTML = "Nome da Liga";
   let nameD = document.createElement("div");
@@ -194,6 +193,7 @@ const registerLeagueForm = () => {
   let confpassI = document.createElement("input");
   confpassI.setAttribute("name", "confpass");
   confpassI.setAttribute("type", "text");
+  confpassI.setAttribute("id", "league-confpass");
   let confpassL = document.createElement("h1");
   confpassL.innerHTML = "Confirme a senha";
   let confpassD = document.createElement("div");
@@ -204,7 +204,8 @@ const registerLeagueForm = () => {
   confpassD.appendChild(confpassL);
   confpassD.appendChild(confpassI);
   confpassD.appendChild(confpassEr);
-
+  let messenger = createElement("p");
+  passwordD.setAttribute("id", "messenger")
   let btn = document.createElement("button");
   btn.setAttribute("type", "submit");
   btn.classList.add("btn");
@@ -213,6 +214,7 @@ const registerLeagueForm = () => {
   form.appendChild(passwordD);
   form.appendChild(confpassD);
   form.appendChild(btn);
+  form.appendChild(messenger)
 };
 
 const enterLeagueForm = () => {
@@ -246,6 +248,8 @@ const enterLeagueForm = () => {
   let btn = document.createElement("button");
   btn.setAttribute("type", "submit");
   btn.classList.add("btn");
+  let messenger = createElement("p");
+  passwordD.setAttribute("id", "messenger")
   btn.innerHTML = "Entrar";
   passwordD.appendChild(passwordL);
   passwordD.appendChild(passwordI);
@@ -253,6 +257,7 @@ const enterLeagueForm = () => {
   form.appendChild(nameD);
   form.appendChild(passwordD);
   form.appendChild(btn);
+  form.appendChild(messenger);
 };
 
 document.getElementsByTagName("body")[0].addEventListener("keydown", digitar);
@@ -260,16 +265,16 @@ document.getElementsByTagName("body")[0].addEventListener("keydown", digitar);
 const registerLeague = async (e) => {
   e.preventDefault();
   let erro = false;
-  let username = document.getElementById("username-login").value.trim();
-  let password = document.getElementById("password-login").value;
-  let form_name = document.getElementById("form_name_login").value;
+  let username = document.getElementById("league-name").value.trim();
+  let password = document.getElementById("league-pass").value;
+  let confpass = document.getElementById("league-confpass").value;
   let resp = await (
-    await fetch("./login.php", {
+    await fetch("./registerLeague.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: new URLSearchParams({ username, password, form_name }),
+      body: new URLSearchParams({ username, password, confpass }),
     })
   ).json();
   for (key of Object.keys(resp)) {
