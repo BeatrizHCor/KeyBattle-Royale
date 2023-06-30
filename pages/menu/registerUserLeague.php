@@ -1,5 +1,5 @@
 <?php
-
+include "../authenticate.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name;
     $password;
@@ -14,11 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $name = htmlspecialchars(stripslashes(trim($_POST["name"])));
     }
-    if (empty($_POST["player"])) {
+    if (empty($_SESSION["id"])) {
         $messenger = "Algo deu errado. Atualize a página e tente novamente";
         $erro = true;
     } else {
-        $player = $_POST["player"];
+        $player = $_SESSION["id"];
     }
     if (empty($_POST["password"])) {
         $erro_password = "Senha não pode estar vazia";
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $erro_password = "Senha incorreta";
                 } else {
                     $id = $linha["id"];
-                    $sql = "INSERT INTO league_player (player, league) VALUES ('$player', '$id');";
+                    $sql = "INSERT INTO league_player (player, league) VALUES ($player, $id);";
                     if (!mysqli_query($conn, $sql)) {
                         $messenger = "Algo deu errado. Atualize a página e tente novamente";
                         $erro = true;
@@ -53,7 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $json = [
         "erro_password" => $erro_password,
         "erro_name" => $erro_name,
-        "erro_confpass" => $erro_confpass,
         "messenger" => $messenger
     ];
     echo json_encode($json);

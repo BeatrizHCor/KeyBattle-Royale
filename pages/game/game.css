@@ -28,10 +28,25 @@ body {
 
 .option {
   height: 100%;
-  width: 100%;
+  width: 8%;
   display: grid;
   place-content: center;
   border-radius: 1em;
+}
+.option:nth-of-type(1) {
+  background-color: rgb(161, 100, 30);
+}
+.option:nth-of-type(2) {
+  background-color: rgb(90, 54, 13);
+}
+.option:nth-of-type(3) {
+  background-color: rgb(102, 93, 84);
+}
+.option:nth-of-type(4) {
+  background-color: rgb(94, 124, 46);
+}
+.option:nth-of-type(5) {
+  background-color: rgb(105, 96, 119);
 }
 .option.selected {
   --borderColor: #fff;

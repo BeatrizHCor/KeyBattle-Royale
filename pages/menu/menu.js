@@ -81,7 +81,7 @@ const digitar = (e) => {
       char += 1;
       if (char == selected.length) {
         if (selected == "Sair") {
-          location.href = "/pages/home/home.html";
+          logOut();
         } else {
           openBooks(selected.replace(" ", "_"));
           isOpen = selected;
@@ -106,7 +106,7 @@ const digitar = (e) => {
       console.log(char);
       if (char == selected.length) {
         if (selected == "Casual") {
-          location.href = "/KeyBattle-Royale/pages/game/game.html";
+          location.href = "/pages/game/game.html";
         }
         if (selected == "Gerar Nova") {
           registerLeagueForm();
@@ -161,7 +161,7 @@ const closeBooks = (id) => {
 const registerLeagueForm = () => {
   let form = document.getElementById("leagueform");
   form.innerHTML = "";
-  form.setAttribute("onsubmit", "registerLeague(event)")
+  form.setAttribute("onsubmit", "registerLeague(event)");
   let nameI = document.createElement("input");
   nameI.setAttribute("name", "name");
   nameI.setAttribute("type", "text");
@@ -204,8 +204,8 @@ const registerLeagueForm = () => {
   confpassD.appendChild(confpassL);
   confpassD.appendChild(confpassI);
   confpassD.appendChild(confpassEr);
-  let messenger = createElement("p");
-  passwordD.setAttribute("id", "messenger")
+  let messenger = document.createElement("p");
+  passwordD.setAttribute("id", "messenger");
   let btn = document.createElement("button");
   btn.setAttribute("type", "submit");
   btn.classList.add("btn");
@@ -214,12 +214,13 @@ const registerLeagueForm = () => {
   form.appendChild(passwordD);
   form.appendChild(confpassD);
   form.appendChild(btn);
-  form.appendChild(messenger)
+  form.appendChild(messenger);
 };
 
 const enterLeagueForm = () => {
   let form = document.getElementById("leagueform");
   form.innerHTML = "";
+  form.setAttribute("onsubmit", "registerUserLeague(event)");
   let nameI = document.createElement("input");
   nameI.setAttribute("name", "name");
   nameI.setAttribute("type", "text");
@@ -248,8 +249,8 @@ const enterLeagueForm = () => {
   let btn = document.createElement("button");
   btn.setAttribute("type", "submit");
   btn.classList.add("btn");
-  let messenger = createElement("p");
-  passwordD.setAttribute("id", "messenger")
+  let messenger = document.createElement("p");
+  passwordD.setAttribute("id", "messenger");
   btn.innerHTML = "Entrar";
   passwordD.appendChild(passwordL);
   passwordD.appendChild(passwordI);
@@ -265,7 +266,7 @@ document.getElementsByTagName("body")[0].addEventListener("keydown", digitar);
 const registerLeague = async (e) => {
   e.preventDefault();
   let erro = false;
-  let username = document.getElementById("league-name").value.trim();
+  let name = document.getElementById("league-name").value.trim();
   let password = document.getElementById("league-pass").value;
   let confpass = document.getElementById("league-confpass").value;
   let resp = await (
@@ -274,17 +275,51 @@ const registerLeague = async (e) => {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: new URLSearchParams({ username, password, confpass }),
+      body: new URLSearchParams({ name, password, confpass }),
     })
   ).json();
   for (key of Object.keys(resp)) {
     if (!erro && resp[key] != "") {
       erro = true;
-      console.log(erro);
     }
     document.getElementById(key).innerHTML = resp[key];
   }
   if (!erro) {
-    window.location.href = "/pages/menu/menu.html";
+    let form = document.getElementById("leagueform");
+    form.innerHTML = "Liga Criada com Sucesso!";
+    state = 2;
   }
+};
+
+const registerUserLeague = async (e) => {
+  e.preventDefault();
+  let erro = false;
+  let name = document.getElementById("league-name").value.trim();
+  let password = document.getElementById("league-pass").value;
+  let resp = await (
+    await fetch("./registerUserLeague.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({ name, password }),
+    })
+  ).json();
+  for (key of Object.keys(resp)) {
+    if (!erro && resp[key] != "") {
+      erro = true;
+    }
+    document.getElementById(key).innerHTML = resp[key];
+  }
+  if (!erro) {
+    let form = document.getElementById("leagueform");
+    form.innerHTML = "Você entrou com sucesso!";
+    state = 2;
+  }
+};
+
+const logOut = async () => {
+  await fetch("./logout.php").then(
+    (e) => (location.href = "/pages/home/home.html")
+  );
 };

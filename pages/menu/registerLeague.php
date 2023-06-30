@@ -1,9 +1,11 @@
 <?php
+include "../authenticate.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $messenger = "";
     $erro_name = "";
     $erro_password = "";
     $erro_confpass = "";
+    $erro = false;
     $name;
     $adm;
     $password;
@@ -42,10 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $erro = true;
                 $erro_name = "Este nome ja está em uso";
             } else {
-                $sql = "INSERT INTO league (name, adm, keyword) VALUES ('$name', '$adm', '$password');";
+                $sql = "INSERT INTO league (name, adm, keyword) VALUES ('$name', $adm, '$password');";
                 if (!mysqli_query($conn, $sql)) {
                     $erro = true;
-                    $messenger = "Algo deu errado. Atualize a página e tente novamente.";
+                    $messenger = "impossivel conectar ao banco de dados.";
                 }
             }
         }
@@ -55,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "erro_password" => $erro_password,
         "erro_name" => $erro_name,
         "erro_confpass" => $erro_confpass,
-        "messenger" => $messenger
+        "messenger" => $messenger,
     ];
     echo json_encode($json);
 }

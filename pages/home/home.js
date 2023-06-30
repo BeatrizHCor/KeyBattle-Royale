@@ -115,7 +115,6 @@ const registerFunction = async (e) => {
   for (key of Object.keys(resp)) {
     if (!erro && resp[key] != "") {
       erro = true;
-      console.log(erro);
     }
     document.getElementById(key).innerHTML = resp[key];
   }

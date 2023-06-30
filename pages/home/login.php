@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["form_name"] == "registro") {
         $conn = mysqli_connect("localhost", "root", "4685", "KeyBattle");
         $sql = "INSERT INTO auth_user (email, username, password) VALUES ('$email_reg', '$user_reg', '$password_reg');";
         if (mysqli_query($conn, $sql)) {
-            $mensagem = "ok";
+            $mensagem = "";
         } else {
             $mensagem = mysqli_error($conn);
         }
