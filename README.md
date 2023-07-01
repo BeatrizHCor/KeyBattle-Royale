@@ -3,7 +3,9 @@
 
 ## Objetivo
 
-O KeyBattle-Royale é um jogo desenvolvido pelos alunos Beatriz Helena Pinto Coradi, João Alberto François e Maria Clara Cunha Serfaty como atividade da disciplina de Desenvolvimento Web 1 na Universidade Federal do Paraná, no primeiro semestre de 2023. O objetivo desta atividade é criar um jogo de digitação que desafie os jogadores a aprimorarem suas habilidades de digitação de forma lúdica.
+O KeyBattle-Royale é um jogo desenvolvido pelos alunos Beatriz Helena Pinto Coradi, João Alberto François e Maria Clara Cunha Serfaty como atividade da disciplina de Desenvolvimento Web 1 na Universidade Federal do Paraná, no primeiro semestre de 2023. 
+
+O objetivo desta atividade é criar um jogo de digitação que desafie os jogadores a aprimorarem suas habilidades de digitação de forma lúdica.
 
 
 ## Requisitos 
@@ -52,5 +54,7 @@ Para acessar o jogo localmente, abra seu navegador e inclua na barra de URL: `ht
 
 Todos os elementos do jogo devem ser acessados através da entrada do teclado.
 Durante a partida, você deve escrever corretamente e o mais rápido possível as palavras que aparecerão na tela dentro do limite de tempo.
+
 Para salvar seu score e fazer com que ele seja exibido em um ranking, é necessario criar ou pertencer a uma liga, além de jogar o modo Ranqueado.
+
 Caso não esteja em uma liga, apenas o modo casual estará disponível.
