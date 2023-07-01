@@ -20,7 +20,6 @@ const resetOptions = () => {
     text.children[i].style = "";
   }
   text = null;
-  selected = null;
 };
 
 const openBook = () => {
@@ -104,6 +103,7 @@ const getInput = (e) => {
     case 2:
       if (selected[char].toUpperCase() != key) {
         resetOptions();
+        selected = null;
         char = 0;
         state = 1;
       } else {
@@ -133,6 +133,17 @@ const getInput = (e) => {
       ) {
         bookText.children[char].style =
           "text-shadow:  0px 0px 12px  rgb(100, 100, 255); color: var(--gray); border-bottom: 1px solid var(--green)";
+        let at = document.createElement("div");
+        at.classList.add("attack");
+        at.setAttribute("id", "attack");
+        at.classList.add(selected);
+        document.getElementById("book").appendChild(at);
+        document.getElementById("bird").classList.add("attacked");
+        setTimeout(() => document.getElementById("attack").remove(), 1900);
+        setTimeout(
+          () => document.getElementById("bird").classList.remove("attacked"),
+          1900
+        );
       } else {
         errors += 1;
         document.getElementById("health").style.width = `${100 - errors}%`;
@@ -148,9 +159,9 @@ const getInput = (e) => {
       if (char == generated.length - 1) {
         bookText.innerHTML = "";
         state = 1;
+        selected = null;
         char = 0;
         turn += 1;
-        closeBook();
       }
       break;
     default:
@@ -172,7 +183,7 @@ const endGame = async () => {
       }),
     })
   ).json();
-  if (resp.messsage == "ok") {
+  if (resp == "ok") {
     location.href = "/pages/menu/menu.html";
   }
 };

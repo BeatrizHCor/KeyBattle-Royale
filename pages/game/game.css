@@ -32,6 +32,34 @@ body {
   animation: fly 12s forwards;
   animation-iteration-count: infinite;
 }
+.attacked {
+  animation: attacked 2s forwards;
+  animation-iteration-count: infinite;
+}
+.attack {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  width: 50px;
+  height: 50px;
+  animation: slide 2s forwards;
+  border-radius: 50%;
+}
+.Sol {
+  background-color: rgb(255, 150, 120);
+}
+.Terra {
+  background-color: rgb(100, 200, 80);
+}
+.Ar {
+  background-color: rgb(200, 200, 255);
+}
+.Oceano {
+  background-color: rgb(100, 200, 255);
+}
+.Noite {
+  background-color: rgb(90, 80, 150);
+}
 .healthBar {
   position: absolute;
   top: 70%;
@@ -77,11 +105,10 @@ body {
   color: var(--darkpink);
   text-shadow: none;
   font-size: xx-large;
+  width: 100%;
 }
 #book.open {
-  height: 10%;
-  display: grid;
-  place-content: center;
+  width: 100%;
   border-radius: 1em;
 }
 
@@ -99,11 +126,10 @@ body {
 #title span {
   animation: jumpLetter 5s forwards;
   animation-iteration-count: infinite;
-}
-span {
   white-space: pre;
   display: inline-flex;
 }
+
 #title span:nth-of-type(2) {
   animation-delay: 0.15s;
 }
