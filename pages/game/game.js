@@ -166,19 +166,23 @@ const getInput = (e) => {
 };
 
 const endGame = async () => {
-  let resp = await (
-    await fetch("./postScore.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams({
-        score: turn,
-        ID_league: Number(location.href.split("=")[1]),
-      }),
-    })
-  ).json();
-  if (resp == "ok") {
+  if (location.href.split("=")[1]) {
+    let resp = await (
+      await fetch("./postScore.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          score: turn,
+          ID_league: Number(location.href.split("=")[1]),
+        }),
+      })
+    ).json();
+    if (resp == "ok") {
+      location.href = "/pages/menu/menu.html";
+    }
+  } else {
     location.href = "/pages/menu/menu.html";
   }
 };

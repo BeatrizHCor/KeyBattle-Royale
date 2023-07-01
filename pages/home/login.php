@@ -47,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["form_name"] == "login") {
     }
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["form_name"] == "registro") {
+    $conn = mysqli_connect("localhost", "root", "4685", "KeyBattle");
     $erro = false;
     if (empty($_POST["usernameReg"])) {
         $erro_usernameReg = "Usuário não pode estar vazio";
@@ -78,15 +79,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["form_name"] == "registro") {
     } else {
         $password_conf_reg = $_POST["passwordConfReg"];
     }
-    if (!$erro) {
-        $conn = mysqli_connect("localhost", "root", "4685", "KeyBattle");
-        $sql = "INSERT INTO auth_user (email, username, password) VALUES ('$email_reg', '$user_reg', '$password_reg');";
-        if (mysqli_query($conn, $sql)) {
-            $mensagem = "";
+    $verify = "SELECT username from auth_user where username = '$user_reg'";
+    $result = mysqli_query($conn, $verify);
+    if ($result) {
+        if (mysqli_num_rows($result) > 0) {
+            $erro = true;
+            $erro_usernameReg = "Este nome ja está em uso";
         } else {
-            $mensagem = mysqli_error($conn);
+            if (!$erro) {
+                $sql = "INSERT INTO auth_user (email, username, password) VALUES ('$email_reg', '$user_reg', '$password_reg');";
+                if (mysqli_query($conn, $sql)) {
+                    $mensagem = "";
+                } else {
+                    $mensagem = mysqli_error($conn);
+                }
+                mysqli_close($conn);
+            }
         }
-        mysqli_close($conn);
     }
 }
 $json = [

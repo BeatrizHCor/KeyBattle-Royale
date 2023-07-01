@@ -3,7 +3,7 @@ Create database KeyBattle; Use KeyBattle;
 Create Table auth_user(
 id serial primary key,
 email varchar(80) unique NOT NULL,
-username varchar(20) NOT NULL,
+username varchar(20) unique NOT NULL,
 password varchar(100)NOT NULL);
 
 Create Table league(id serial primary key,

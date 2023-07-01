@@ -348,6 +348,7 @@ const logOut = async () => {
 
 const listBestbyLeague = async () => {
   let lista = document.getElementById("melhores_lista");
+  lista.setAttribute("onsubmit", "fetchByName(event)");
   lista.innerHTML = "";
   let nameI = document.createElement("input");
   nameI.setAttribute("name", "name");
@@ -358,9 +359,8 @@ const listBestbyLeague = async () => {
   let nameD = document.createElement("div");
   nameD.classList.add("label-input");
   let btn = document.createElement("button");
-  btn.setAttribute("type", "button");
+  btn.setAttribute("type", "submit");
   btn.classList.add("btn");
-  btn.setAttribute("onclick", "fetchByName(event)");
   btn.innerHTML = "Pesquisar";
   let title1 = document.createElement("p");
   title1.innerHTML = "Melhores de todos os tempos";
@@ -382,7 +382,6 @@ const listBestbyLeague = async () => {
 
 const listBest = async () => {
   let lista = document.getElementById("melhores_lista");
-  lista.setAttribute("submit", "fetchBest(event)");
   lista.innerHTML = "";
   let nameI = document.createElement("input");
   nameI.setAttribute("name", "name");
@@ -408,6 +407,7 @@ const listBest = async () => {
 };
 
 const fetchByName = async (e) => {
+  e.preventDefault();
   let ul = document.getElementById("best10");
   ul.innerHTML = "";
   let name = document.getElementById("league-search").value;
