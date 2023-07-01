@@ -35,7 +35,7 @@ Para acessar o jogo localmente, abra seu navegador e inclua na barra de URL: `ht
 - Entrar em liga: colher nome da liga e senha.
 
 **Histórico**
--Colher e exibir pontuação e histórico do jogador, em ligas e no geral.
+- Colher e exibir pontuação e histórico do jogador, em ligas e no geral.
 
 **Modos de jogo**
 - Casual e ranqueado.
