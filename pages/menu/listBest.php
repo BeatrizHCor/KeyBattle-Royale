@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 array_push($json, $i);
             }
         } else {
-            $mensagem = "Esta Liga não existe";
+            $mensagem = "Esta Liga não existe ou não tem registros ainda";
         }
     } else {
         $mensagem = "Algo deu errado, tente novamente.";

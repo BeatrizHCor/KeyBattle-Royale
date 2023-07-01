@@ -370,6 +370,7 @@ const listBestbyLeague = async () => {
   ul2.setAttribute("id", "best7d");
   let title2 = document.createElement("p");
   title2.innerHTML = "Melhores dos ultimos 7 dias";
+  document.getElementById("best").innerHTML = "";
   nameD.appendChild(nameL);
   nameD.appendChild(nameI);
   lista.appendChild(nameD);
