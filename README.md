@@ -11,7 +11,7 @@ O objetivo desta atividade é criar um jogo de digitação que desafie os jogado
 ## Requisitos 
 
 Necessário a instalação prévia dos programas _MySQL_ e _Apache_.
-
+A senha para o usuário root no banco de dados é 4685;
 
 ## Como rodar
 
