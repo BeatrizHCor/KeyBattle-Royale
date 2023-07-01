@@ -47,18 +47,23 @@ body {
 }
 .Sol {
   background-color: rgb(255, 150, 120);
+  box-shadow: 0px 0px 25px 5px rgba(255, 120, 120, 0.589);
 }
 .Terra {
   background-color: rgb(100, 200, 80);
+  box-shadow: 0px 0px 25px 5px rgba(178, 200, 80, 0.589);
 }
 .Ar {
   background-color: rgb(200, 200, 255);
+  box-shadow: 0px 0px 25px 5px rgba(215, 200, 255, 0.589);
 }
 .Oceano {
   background-color: rgb(100, 200, 255);
+  box-shadow: 0px 0px 25px 5px rgba(100, 128, 255, 0.589);
 }
 .Noite {
   background-color: rgb(90, 80, 150);
+  box-shadow: 0px 0px 25px 5px rgba(80, 99, 150, 0.692);
 }
 .healthBar {
   position: absolute;

@@ -38,6 +38,9 @@ p span {
 #title span:nth-of-type(3) {
   animation-delay: 0.3s;
 }
+tr {
+  font-size: 1.5em;
+}
 #title span:nth-of-type(4) {
   animation-delay: 0.45s;
 }
@@ -332,4 +335,15 @@ p span {
 }
 #best {
   transform: scale(0);
+}
+
+.tut {
+  transform: scale(0);
+  height: 0;
+}
+.pages.inCenter .tut {
+  transform: rotateY(-180deg) scale(1);
+  color: var(--bluetext);
+  text-shadow: none;
+  font-weight: 100;
 }

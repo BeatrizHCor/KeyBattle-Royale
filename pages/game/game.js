@@ -138,7 +138,7 @@ const getInput = (e) => {
         at.setAttribute("id", "attack");
         at.classList.add(selected);
         document.getElementById("book").appendChild(at);
-        setTimeout(() => document.getElementById("attack").remove(), 1900);
+        setTimeout(() => document.getElementById("attack").remove(), 1500);
       } else {
         errors += 1;
         document.getElementById("health").style.width = `${100 - errors}%`;

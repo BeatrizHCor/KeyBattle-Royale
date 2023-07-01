@@ -131,6 +131,10 @@ const digitar = (e) => {
           state = 0;
           resetColors();
           let ul = document.getElementById("best");
+          let lista = document.getElementById("melhores_lista");
+          if (lista) {
+            lista.innerHTML = "";
+          }
           if (ul) {
             ul.innerHTML = "";
           }
@@ -144,6 +148,7 @@ const digitar = (e) => {
         }
         if (selected == "Ligas") {
           listBestbyLeague();
+          state = 5;
         }
         if (selected == "Ranqueado") {
           getRankedForm();
@@ -357,13 +362,22 @@ const listBestbyLeague = async () => {
   btn.classList.add("btn");
   btn.setAttribute("onclick", "fetchByName(event)");
   btn.innerHTML = "Pesquisar";
+  let title1 = document.createElement("p");
+  title1.innerHTML = "Melhores de todos os tempos";
   let ul = document.createElement("tbody");
   ul.setAttribute("id", "best10");
+  let ul2 = document.createElement("tbody");
+  ul2.setAttribute("id", "best7d");
+  let title2 = document.createElement("p");
+  title2.innerHTML = "Melhores dos ultimos 7 dias";
   nameD.appendChild(nameL);
   nameD.appendChild(nameI);
   lista.appendChild(nameD);
   lista.appendChild(btn);
+  document.getElementById("best").appendChild(title1);
   document.getElementById("best").appendChild(ul);
+  document.getElementById("best").appendChild(title2);
+  document.getElementById("best").appendChild(ul2);
 };
 
 const listBest = async () => {
@@ -386,7 +400,7 @@ const listBest = async () => {
     ul.innerHTML = "";
     for (score of resp.values) {
       let li = document.createElement("tr");
-      li.innerHTML = `Pontuação:${score.score}. Jogador: ${score.player} Liga: ${score.league}`;
+      li.innerHTML = `Pontuação:${score.score}. | Jogador: ${score.player} | Liga: ${score.league}`;
       ul.appendChild(li);
     }
   }
@@ -408,8 +422,22 @@ const fetchByName = async (e) => {
       li.innerHTML = `Pontuação:${score.score}. Jogador: ${score.player} Liga: ${score.league}`;
       ul.appendChild(li);
     }
-    state = 2;
   }
+  let ul2 = document.getElementById("best7d");
+  ul2.innerHTML = "";
+  let resp2 = await (
+    await fetch(`./listBest.php?league=${name}&time=all`)
+  ).json();
+  if (resp2.message) {
+    ul.innerHTML = resp.message;
+  } else {
+    for (score of resp2.values) {
+      let li = document.createElement("tr");
+      li.innerHTML = `Pontuação:${score.score}. Jogador: ${score.player} Liga: ${score.league}`;
+      ul2.appendChild(li);
+    }
+  }
+  state = 2;
 };
 
 const getRankedForm = () => {
