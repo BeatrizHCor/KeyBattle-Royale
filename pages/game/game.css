@@ -14,6 +14,38 @@ body {
   border: 2px solid var(--darkpink);
   background-color: var(--gray);
 }
+.witch {
+  position: absolute;
+  top: 35%;
+  left: 5%;
+  width: 350px;
+  height: 350px;
+  animation: fly 20s forwards;
+  animation-iteration-count: infinite;
+}
+.birds {
+  position: absolute;
+  top: 55%;
+  left: 85%;
+  width: 150;
+  height: 150;
+  animation: fly 12s forwards;
+  animation-iteration-count: infinite;
+}
+.healthBar {
+  position: absolute;
+  top: 70%;
+  left: 5%;
+  width: 350px;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 2px;
+}
+.healthShow {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
 
 .menu {
   display: flex;
@@ -25,29 +57,17 @@ body {
   background-color: var(--lightpink);
   padding: 16px;
 }
-
+.book {
+  display: flex;
+}
 .option {
   height: 100%;
-  width: 8%;
+  width: 98%;
   display: grid;
   place-content: center;
   border-radius: 1em;
 }
-.option:nth-of-type(1) {
-  background-color: rgb(161, 100, 30);
-}
-.option:nth-of-type(2) {
-  background-color: rgb(90, 54, 13);
-}
-.option:nth-of-type(3) {
-  background-color: rgb(102, 93, 84);
-}
-.option:nth-of-type(4) {
-  background-color: rgb(94, 124, 46);
-}
-.option:nth-of-type(5) {
-  background-color: rgb(105, 96, 119);
-}
+
 .option.selected {
   --borderColor: #fff;
   --shadowColor: #fff;
@@ -59,10 +79,9 @@ body {
   font-size: xx-large;
 }
 #book.open {
-  width: 50%;
-  height: 50%;
-  background-color: var(--lightpink);
-  display: flex;
+  height: 10%;
+  display: grid;
+  place-content: center;
   border-radius: 1em;
 }
 
@@ -71,4 +90,69 @@ body {
   box-shadow: inset 4px 16px var(--shadow);
   width: 50%;
   height: 100%;
+}
+#title {
+  position: fixed;
+  left: 40%;
+  top: 25%;
+}
+#title span {
+  animation: jumpLetter 5s forwards;
+  animation-iteration-count: infinite;
+}
+span {
+  white-space: pre;
+  display: inline-flex;
+}
+#title span:nth-of-type(2) {
+  animation-delay: 0.15s;
+}
+#title span:nth-of-type(2) {
+  animation-delay: 0.15s;
+}
+#title span:nth-of-type(3) {
+  animation-delay: 0.3s;
+}
+#title span:nth-of-type(4) {
+  animation-delay: 0.45s;
+}
+#title span:nth-of-type(5) {
+  animation-delay: 0.6s;
+}
+#title span:nth-of-type(6) {
+  animation-delay: 0.75s;
+}
+#title span:nth-of-type(7) {
+  animation-delay: 0.8s;
+}
+#title span:nth-of-type(8) {
+  animation-delay: 0.9s;
+}
+
+#title span:nth-of-type(9) {
+  animation-delay: 1.05s;
+}
+#title span:nth-of-type(10) {
+  animation-delay: 1.2s;
+}
+#title span:nth-of-type(12) {
+  animation-delay: 1.35s;
+}
+#title span:nth-of-type(13) {
+  animation-delay: 1.5s;
+}
+#title span:nth-of-type(14) {
+  animation-delay: 1.65s;
+}
+#title span:nth-of-type(15) {
+  animation-delay: 1.8s;
+}
+#title span:nth-of-type(16) {
+  animation-delay: 1.95s;
+}
+#title span:nth-of-type(17) {
+  animation-delay: 2.1s;
+}
+#title span:nth-of-type(18) {
+  animation-delay: 2.25s;
 }

@@ -1,4 +1,5 @@
 <?php
+include "../authenticate.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $erro = false;
     $mensagem = "";
@@ -29,6 +30,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         mysqli_close($conn);
     }
-    echo $erro;
     echo $mensagem;
 }

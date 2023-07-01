@@ -145,6 +145,9 @@ const digitar = (e) => {
         if (selected == "Ligas") {
           listBestbyLeague();
         }
+        if (selected == "Ranqueado") {
+          getRankedForm();
+        }
       }
     }
   }
@@ -407,4 +410,52 @@ const fetchByName = async (e) => {
     }
     state = 2;
   }
+};
+
+const getRankedForm = () => {
+  let ranked = document.getElementById("ranked_game");
+  let nameI = document.createElement("input");
+  nameI.setAttribute("name", "name");
+  nameI.setAttribute("type", "text");
+  nameI.setAttribute("id", "league-start");
+  let nameL = document.createElement("h1");
+  nameL.innerHTML = "Nome da Liga";
+  let nameD = document.createElement("div");
+  nameD.classList.add("label-input");
+  let nameEr = document.createElement("p");
+  nameEr.classList.add("erro");
+  nameEr.setAttribute("id", "erro_nameR");
+  nameD.appendChild(nameL);
+  nameD.appendChild(nameI);
+  nameD.appendChild(nameEr);
+  ranked.appendChild(nameD);
+  let btn = document.createElement("button");
+  btn.setAttribute("type", "button");
+  btn.classList.add("btn");
+  btn.setAttribute("onclick", "startGame()");
+  btn.innerHTML = "Iniciar";
+  ranked.appendChild(btn);
+  let btn2 = document.createElement("button");
+  btn2.setAttribute("type", "button");
+  btn2.classList.add("btn");
+  btn2.setAttribute("onclick", "back();");
+  btn2.innerHTML = "voltar";
+  ranked.appendChild(btn2);
+};
+
+const startGame = async () => {
+  let name = document.getElementById("league-start").value;
+  let resp = await (await fetch(`./checkLeague.php?league=${name}`)).json();
+  if (!resp.valid) {
+    document.getElementById("erro_nameR").innerHTML = resp.erro_nameR;
+  } else {
+    location.href = `/pages/game/game.html?league=${resp.idleague}`;
+  }
+};
+
+const back = () => {
+  let ranked = document.getElementById("ranked_game");
+  ranked.innerHTML = "";
+  state = 2;
+  resetColors();
 };

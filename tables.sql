@@ -22,5 +22,6 @@ foreign key (player) references auth_user(id));
 Create Table league_player(player BIGINT UNSIGNED NOT NULL NOT NULL,
 foreign key (player) references auth_user(id),
 league BIGINT UNSIGNED NOT NULL NOT NULL,
-foreign key (league) references league(id)
+foreign key (league) references league(id),
+primary key (player, league)
 );

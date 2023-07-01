@@ -83,6 +83,11 @@ const getInput = (e) => {
     case 0:
       if (key == "Enter") {
         state = 1;
+        document.getElementById("title").remove();
+        setInterval(() => {
+          errors += 1;
+          document.getElementById("health").style.width = `${100 - errors}%`;
+        }, 60000);
       }
       break;
     case 1:
@@ -106,6 +111,9 @@ const getInput = (e) => {
         if (char != selected.length - 1) {
           char += 1;
         } else {
+          if (selected == "Desistir") {
+            location.href = "/pages/menu/menu.html";
+          }
           state = 3;
           char = 0;
           generated = generatePhrase(turn);
@@ -127,6 +135,10 @@ const getInput = (e) => {
           "text-shadow:  0px 0px 12px  rgb(100, 100, 255); color: var(--gray); border-bottom: 1px solid var(--green)";
       } else {
         errors += 1;
+        document.getElementById("health").style.width = `${100 - errors}%`;
+        if (errors > 99) {
+          endGame();
+        }
         bookText.children[char].style =
           "text-shadow:  0px 0px 8px  rgb(255, 100, 100); color: var(--bluetext); border-bottom: 1px solid red";
       }
@@ -138,11 +150,30 @@ const getInput = (e) => {
         state = 1;
         char = 0;
         turn += 1;
+        closeBook();
       }
       break;
     default:
       null;
       break;
+  }
+};
+
+const endGame = async () => {
+  let resp = await (
+    await fetch("./postScore.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        score: turn,
+        ID_league: Number(location.href.split("=")[1]),
+      }),
+    })
+  ).json();
+  if (resp.messsage == "ok") {
+    location.href = "/pages/menu/menu.html";
   }
 };
 
