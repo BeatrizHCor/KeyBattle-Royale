@@ -320,3 +320,16 @@ p span {
 .sideform {
   transform: rotateY(-180deg);
 }
+#best.inCenter {
+  background-color: #b4b0a4;
+  margin: 20px;
+  border-radius: 1em;
+  display: grid;
+  padding: 10px;
+  place-content: center;
+  padding: 10px;
+  transform: scale(1);
+}
+#best {
+  transform: scale(0);
+}

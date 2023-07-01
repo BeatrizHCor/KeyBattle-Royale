@@ -130,6 +130,20 @@ const digitar = (e) => {
           typed = "";
           state = 0;
           resetColors();
+          let ul = document.getElementById("best");
+          if (ul) {
+            ul.innerHTML = "";
+          }
+        }
+        if (selected == "Todos") {
+          listBest("all", "all");
+          state = 2;
+          resetColors();
+          selected = undefined;
+          typed = "";
+        }
+        if (selected == "Ligas") {
+          listBestbyLeague();
         }
       }
     }
@@ -322,4 +336,75 @@ const logOut = async () => {
   await fetch("./logout.php").then(
     (e) => (location.href = "/pages/home/home.html")
   );
+};
+
+const listBestbyLeague = async () => {
+  let lista = document.getElementById("melhores_lista");
+  lista.innerHTML = "";
+  let nameI = document.createElement("input");
+  nameI.setAttribute("name", "name");
+  nameI.setAttribute("type", "text");
+  nameI.setAttribute("id", "league-search");
+  let nameL = document.createElement("h1");
+  nameL.innerHTML = "Nome da Liga";
+  let nameD = document.createElement("div");
+  nameD.classList.add("label-input");
+  let btn = document.createElement("button");
+  btn.setAttribute("type", "button");
+  btn.classList.add("btn");
+  btn.setAttribute("onclick", "fetchByName(event)");
+  btn.innerHTML = "Pesquisar";
+  let ul = document.createElement("tbody");
+  ul.setAttribute("id", "best10");
+  nameD.appendChild(nameL);
+  nameD.appendChild(nameI);
+  lista.appendChild(nameD);
+  lista.appendChild(btn);
+  document.getElementById("best").appendChild(ul);
+};
+
+const listBest = async () => {
+  let lista = document.getElementById("melhores_lista");
+  lista.setAttribute("submit", "fetchBest(event)");
+  lista.innerHTML = "";
+  let nameI = document.createElement("input");
+  nameI.setAttribute("name", "name");
+  nameI.setAttribute("type", "text");
+  nameI.setAttribute("id", "league-search");
+  let nameL = document.createElement("h1");
+  nameL.innerHTML = "Nome da Liga";
+  let nameD = document.createElement("div");
+  nameD.classList.add("label-input");
+  let ul = document.createElement("tbody");
+  let resp = await (await fetch("./listBest.php?league=all&time=all")).json();
+  if (resp.message) {
+    ul.innerHTML = resp.message;
+  } else {
+    ul.innerHTML = "";
+    for (score of resp.values) {
+      let li = document.createElement("tr");
+      li.innerHTML = `Pontuação:${score.score}. Jogador: ${score.player} Liga: ${score.league}`;
+      ul.appendChild(li);
+    }
+  }
+  document.getElementById("best").appendChild(ul);
+};
+
+const fetchByName = async (e) => {
+  let ul = document.getElementById("best10");
+  ul.innerHTML = "";
+  let name = document.getElementById("league-search").value;
+  let resp = await (
+    await fetch(`./listBest.php?league=${name}&time=all`)
+  ).json();
+  if (resp.message) {
+    ul.innerHTML = resp.message;
+  } else {
+    for (score of resp.values) {
+      let li = document.createElement("tr");
+      li.innerHTML = `Pontuação:${score.score}. Jogador: ${score.player} Liga: ${score.league}`;
+      ul.appendChild(li);
+    }
+    state = 2;
+  }
 };
