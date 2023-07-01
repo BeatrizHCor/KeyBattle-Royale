@@ -53,6 +53,7 @@ Para acessar o jogo localmente, abra seu navegador e inclua na barra de URL: `ht
 ## Tutorial
 
 Todos os elementos do jogo devem ser acessados através da entrada do teclado.
+
 Durante a partida, você deve escrever corretamente e o mais rápido possível as palavras que aparecerão na tela dentro do limite de tempo.
 
 Para salvar seu score e fazer com que ele seja exibido em um ranking, é necessario criar ou pertencer a uma liga, além de jogar o modo Ranqueado.
